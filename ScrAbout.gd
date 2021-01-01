@@ -1,7 +1,5 @@
 extends Control
 
-
-
 func _on_BtnBack_pressed():
 	Audio.get_node("GoBack").play()
 	SceneChanger.change_scene("res://MainScr.tscn")
