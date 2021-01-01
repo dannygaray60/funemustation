@@ -1,0 +1,359 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://assets/fonts/ubuntu-font-family/UbuntuMono-R.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://element_btn_min_close_win.gd" type="Script" id=2]
+[ext_resource path="res://Theme.tres" type="Theme" id=3]
+[ext_resource path="res://addons/FontAwesome5/fa-solid-900.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://addons/FontAwesome5/FontAwesome.gd" type="Script" id=5]
+[ext_resource path="res://addons/FontAwesome5/fa-regular-400.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 15.0
+content_margin_right = 15.0
+bg_color = Color( 0.0352941, 0.0196078, 0.219608, 1 )
+anti_aliasing_size = 4
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxFlat" id=7]
+content_margin_left = 15.0
+content_margin_right = 15.0
+bg_color = Color( 0.0627451, 0.262745, 0.584314, 0.101961 )
+anti_aliasing_size = 4
+
+[sub_resource type="DynamicFont" id=8]
+size = 37
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 36
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 37
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 36
+font_data = ExtResource( 4 )
+
+[sub_resource type="ButtonGroup" id=12]
+
+[node name="element_btn_min_close_win" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+theme = ExtResource( 3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoDevice" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+margin_left = 760.0
+margin_right = -129.0
+margin_bottom = 52.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+custom_constants/separation = 22
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Date" type="HBoxContainer" parent="InfoDevice"]
+margin_left = 62.0
+margin_right = 174.0
+margin_bottom = 52.0
+grow_horizontal = 0
+custom_constants/separation = 7
+alignment = 2
+
+[node name="Icon" type="Label" parent="InfoDevice/Date"]
+margin_top = 10.0
+margin_right = 26.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 1 )
+text = ""
+align = 1
+valign = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": "battery-full
+battery-three-quarters
+battery-half
+battery-quarter
+battery-empty
+"
+}
+icon_size = 30
+icon_type = "solid"
+icon_name = "calendar-alt"
+
+[node name="Lbl" type="Label" parent="InfoDevice/Date"]
+margin_left = 33.0
+margin_top = 9.0
+margin_right = 112.0
+margin_bottom = 43.0
+text = "31/12"
+
+[node name="Hour" type="HBoxContainer" parent="InfoDevice"]
+margin_left = 196.0
+margin_right = 308.0
+margin_bottom = 52.0
+grow_horizontal = 0
+custom_constants/separation = 7
+alignment = 2
+
+[node name="Icon" type="Label" parent="InfoDevice/Hour"]
+margin_top = 10.0
+margin_right = 30.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 2 )
+text = ""
+align = 1
+valign = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": "battery-full
+battery-three-quarters
+battery-half
+battery-quarter
+battery-empty
+"
+}
+icon_size = 30
+icon_type = "solid"
+icon_name = "clock"
+
+[node name="Lbl" type="Label" parent="InfoDevice/Hour"]
+margin_left = 37.0
+margin_top = 9.0
+margin_right = 112.0
+margin_bottom = 43.0
+text = "24:00"
+
+[node name="Battery" type="HBoxContainer" parent="InfoDevice"]
+margin_left = 330.0
+margin_right = 477.0
+margin_bottom = 52.0
+grow_horizontal = 0
+custom_constants/separation = 7
+alignment = 2
+
+[node name="Icon2" type="Label" parent="InfoDevice/Battery"]
+margin_top = 10.0
+margin_right = 19.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 3 )
+text = ""
+align = 1
+valign = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": "battery-full
+battery-three-quarters
+battery-half
+battery-quarter
+battery-empty
+"
+}
+icon_size = 30
+icon_type = "solid"
+icon_name = "bolt"
+
+[node name="Icon" type="Label" parent="InfoDevice/Battery"]
+margin_left = 26.0
+margin_top = 10.0
+margin_right = 64.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 4 )
+text = ""
+align = 1
+valign = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": "battery-full
+battery-three-quarters
+battery-half
+battery-quarter
+battery-empty
+"
+}
+icon_size = 30
+icon_type = "solid"
+icon_name = "battery-full"
+
+[node name="Lbl" type="Label" parent="InfoDevice/Battery"]
+margin_left = 71.0
+margin_top = 9.0
+margin_right = 147.0
+margin_bottom = 43.0
+text = "100%"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -99.0
+margin_bottom = 52.0
+custom_constants/separation = 0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="BtnMin" type="Button" parent="HBoxContainer"]
+margin_left = 1.0
+margin_right = 50.0
+margin_bottom = 52.0
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+text = " "
+align = 0
+expand_icon = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="FontAwesome2" type="Label" parent="HBoxContainer/BtnMin"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 9 )
+text = ""
+align = 1
+valign = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+icon_size = 36
+icon_type = "regular"
+icon_name = "window-minimize"
+
+[node name="BtnClose" type="Button" parent="HBoxContainer"]
+margin_left = 50.0
+margin_right = 99.0
+margin_bottom = 52.0
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 10 )
+text = " "
+align = 0
+expand_icon = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="FontAwesome" type="Label" parent="HBoxContainer/BtnClose"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 11 )
+text = ""
+align = 1
+valign = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+icon_size = 36
+icon_type = "solid"
+icon_name = "times"
+
+[node name="ControlConfirmQuit" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="ControlConfirmQuit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0196078, 0.0352941, 0.117647, 0.905882 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlConfirmQuit"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -189.0
+margin_top = -64.0
+margin_right = 190.0
+margin_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/separation = 60
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ControlConfirmQuit/VBoxContainer"]
+margin_right = 379.0
+margin_bottom = 34.0
+text = "SURE_EXIT"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlConfirmQuit/VBoxContainer"]
+margin_top = 94.0
+margin_right = 379.0
+margin_bottom = 128.0
+alignment = 1
+
+[node name="BtnExit" type="Button" parent="ControlConfirmQuit/VBoxContainer/HBoxContainer"]
+margin_left = 50.0
+margin_right = 186.0
+margin_bottom = 34.0
+group = SubResource( 12 )
+text = "ACCEPT"
+
+[node name="BtnCancelPopup" type="Button" parent="ControlConfirmQuit/VBoxContainer/HBoxContainer"]
+margin_left = 190.0
+margin_right = 328.0
+margin_bottom = 34.0
+group = SubResource( 12 )
+text = "CANCEL"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+__meta__ = {
+"_editor_description_": "para refrescar info en pantalla"
+}
+[connection signal="pressed" from="HBoxContainer/BtnMin" to="." method="_on_BtnMin_pressed"]
+[connection signal="pressed" from="HBoxContainer/BtnClose" to="." method="_on_BtnClose_pressed"]
+[connection signal="focus_entered" from="ControlConfirmQuit/VBoxContainer/HBoxContainer/BtnExit" to="." method="_on_Btn_focus_entered"]
+[connection signal="pressed" from="ControlConfirmQuit/VBoxContainer/HBoxContainer/BtnExit" to="." method="_on_BtnExit_pressed"]
+[connection signal="focus_entered" from="ControlConfirmQuit/VBoxContainer/HBoxContainer/BtnCancelPopup" to="." method="_on_Btn_focus_entered"]
+[connection signal="pressed" from="ControlConfirmQuit/VBoxContainer/HBoxContainer/BtnCancelPopup" to="." method="_on_BtnCancelPopup_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

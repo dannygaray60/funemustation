@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/btn.png" type="Texture" id=2]
+[ext_resource path="res://element_set_btn_icon.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[node name="element_set_btn_icon" type="HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+theme = ExtResource( 1 )
+custom_constants/separation = 14
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 64.0
+margin_top = 8.0
+margin_right = 123.0
+margin_bottom = 42.0
+text = "Text"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 137.0
+margin_right = 230.0
+margin_bottom = 50.0
+custom_constants/separation = -1
+
+[node name="BtnPrev" type="Button" parent="HBoxContainer"]
+margin_right = 47.0
+margin_bottom = 50.0
+custom_styles/focus = SubResource( 1 )
+text = "<"
+
+[node name="BtnNext" type="Button" parent="HBoxContainer"]
+margin_left = 46.0
+margin_right = 93.0
+margin_bottom = 50.0
+custom_styles/focus = SubResource( 2 )
+text = ">"
+[connection signal="pressed" from="HBoxContainer/BtnPrev" to="." method="_on_BtnChangeIcon" binds= [ "prev" ]]
+[connection signal="pressed" from="HBoxContainer/BtnNext" to="." method="_on_BtnChangeIcon" binds= [ "next" ]]

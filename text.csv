@@ -1,0 +1,37 @@
+keys;en;es
+WELCOME_USER;Welcome %s!;¡Bienvenido %s!
+PLEASE_WAIT;Please wait...;Por favor espere...
+SYS_NOT_CONF;Systems Not Configured;Sistemas no configurados
+ACCEPT;Accept;Aceptar
+CANCEL;Cancel;Cancelar
+CLOSE;Close;Cerrar
+PLAY;Play;Jugar
+BACK;Back;Retroceder
+CHANGESYS;Change System;Cambiar Sistema
+NAVIGATE;Navigate;Navegar
+NUM_GAMES;%d games;%d juegos
+SETTINGS;Settings;Ajustes
+BACKHOME;Back to home;Regresar a inicio
+BACKLIST;Back to list;Regresar a la lista
+BTNMAPPINGHELP;Click on a button to reassign its action key;Haga click en un botón para reasignar los controles
+KEYBOARD;Keyboard;Teclado
+GAMEPAD;Gamepad;Control de juego
+LANG;Language;Idioma
+ENG;English;Inglés
+ES;Spanish;Español
+OPEN_DATA_F;Open Data Folder;Abrir carpeta de datos
+CUSTOM_MAPPING;Custom Gamepad Mapping;Mapeo Personalizado
+GET_GAME_COVERS;Get Game Art (libretro);Obtener arte de juegos (libretro)
+GET_GAME_COVERS2;Get Game Art (launchbox);Obtener arte de juegos (launchbox)
+APPLY;Apply;Aplicar
+RESET;Reset;Reiniciar
+NO_AVAILABLE;No available;No disponible
+BTNS_ICONS;Buttons Icons;Iconos de botones
+MOVE_U;Move Up;Mover Arriba
+MOVE_D;Move Down;Mover Abajo
+MOVE_L;Move Left;Mover Izquierda
+MOVE_R;Move Right;Mover Derecha
+FILE_OPENED;File opened;El archivo ha sido abierto
+SURE_EXIT;Are you sure to exit?;¿Está seguro de salir?
+CLOSE_LAUNCHER;Close Launcher;Cerrar Launcher
+GO_TO_LIST;Go to list;Ir a lista
