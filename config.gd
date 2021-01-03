@@ -72,6 +72,9 @@ func check_configfile(configfile="user://settings.ini"):
 	
 	if not conf.has_section_key("misc", "borderless"):
 		conf.set_value("misc", "borderless", true)
+		
+	if not conf.has_section_key("misc", "selected_system"):
+		conf.set_value("misc", "selected_system",0)
 	
 #	if not conf.has_section_key("misc", "wallpaper_darkness"):
 #		conf.set_value("misc", "wallpaper_darkness", 0.57)

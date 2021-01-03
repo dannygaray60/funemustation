@@ -24,7 +24,7 @@ func _on_BtnGoMenu_pressed():
 	OS.set_window_maximized(true) 
 	if Global.pid > 0:
 		# warning-ignore:return_value_discarded
-		OS.kill(Global.pid)
+		print(str(OS.kill(Global.pid)))
 	set_process_input(false)
 	Audio.get_node("Music").play()
 	Audio.get_node("Accept").play()

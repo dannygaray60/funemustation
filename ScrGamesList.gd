@@ -22,7 +22,11 @@ var f_path = ""
 var total_loaded_games = 0
 
 func _ready():
-	idx_sys_now = Global.sys_data["conf"]["selected_system"]
+	idx_sys_now = Functions.get_new_position_on_array(
+		Global.systems_id,
+		Config.get_conf_value("misc","selected_system"),
+		"none"
+	)
 	load_system_data()
 	$TimerToShowWallpaper.start()
 	
@@ -66,20 +70,23 @@ func _process(_delta):
 		#con los process desactivados evitamos activar la accion una segunda vez
 		set_process(false)
 		set_process_input(false)
-		Global.save_system_json_conf()
+		Config.set_conf_value("misc","selected_system",idx_sys_now) 
+		Global.save_system_conf()
 		$TimerToStartEmu.start()
 
 	elif Input.is_action_just_pressed("ui_cancel"):
 		last_action = "none"
 		Audio.get_node("GoBack").play()
-		Global.save_system_json_conf()
+		Config.set_conf_value("misc","selected_system",idx_sys_now) 
+		Global.save_system_conf()
 		SceneChanger.change_scene("res://MainScr.tscn")
 		
 	if Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):
 		last_action = "none"
 		$Timer.stop()
 		$TimerToShowWallpaper.start()
-		Global.save_system_json_conf()
+		Config.set_conf_value("misc","selected_system",idx_sys_now) 
+		Global.save_system_conf()
 
 	
 func load_system_data(opt="none"):
@@ -98,13 +105,13 @@ func load_system_data(opt="none"):
 		idx_sys_now,
 		opt
 	)
-	Global.sys_data["conf"]["selected_system"] = idx_sys_now
+	Config.set_conf_value("misc","selected_system",idx_sys_now) 
 	sys_key = Global.systems_id[idx_sys_now]
-	sys_name = Global.sys_data["systems"][sys_key]["name"]
+	sys_name = Global.sys_data[sys_key]["name"]
 	total_loaded_games = Global.systems_data_filtered[idx_sys_now].size()
 	
 	#guardar ruta del sistema
-	sys_path = Global.sys_data["systems"][sys_key]["path_emu"]
+	sys_path = Global.sys_data[sys_key]["path_emu"]
 	
 	#nombre del sistema
 	$ControlSection/TitleEmu/VBx/HBx/Name.text = sys_name
@@ -157,13 +164,14 @@ func load_system_file_data(opt="none"):
 	$GameBG.modulate.a = 0
 	f_idx = Functions.get_new_position_on_array(
 		Global.systems_data_filtered[idx_sys_now],
-		Global.sys_data["systems"][sys_key]["selected_file"],
+		Global.conf.get_value(sys_key,"selected_file",0),
 		opt
 	)
 
 	$ControlSection/TitleEmu/VBx/HSlider.value = f_idx
 
-	Global.sys_data["systems"][sys_key]["selected_file"] = f_idx
+	Global.conf.set_value(sys_key,"selected_file",f_idx)
+	Global.save_system_conf()
 	var f_idx_extra = 0
 	
 	f_path = Global.systems_data_filtered[idx_sys_now][f_idx][3]
@@ -222,7 +230,7 @@ func _on_TimerToShowWallpaper_timeout():
 
 #---- lanzar emulador
 func _on_TimerToStartEmu_timeout():
-	var emu_args = Global.sys_data["systems"][sys_key]["args"]
+	var emu_args = Global.sys_data[sys_key]["args"]
 	#añadir el path del archivo como ultimo argumento
 	if emu_args.empty():
 		emu_args.append(f_path)
@@ -236,10 +244,14 @@ func _on_TimerToStartEmu_timeout():
 	#process id
 	Global.pid = -1
 	var output = []
-	if Global.sys_data["systems"][sys_key]["emulator"]:
+	if Global.sys_data[sys_key]["emulator"]:
 		# guardamos el id del proceso para poder cerrarlo
 		Global.pid = OS.execute(sys_path,emu_args,false,output)
 	else:
+		#metodo usando cmd
+		#el OS.kill() no funcionaría con este...
+#		f_path = f_path.replace("/","\\")
+#		Global.pid = OS.execute("cmd.exe",["/C",f_path],false,output)
 		# warning-ignore:return_value_discarded
 		OS.shell_open(f_path)
 	

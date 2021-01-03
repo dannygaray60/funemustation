@@ -5,7 +5,7 @@ var systems_ok = false
 var f = File.new()
 var dir = Directory.new()
 
-func _enter_tree():
+func _ready():
 	
 	$PanelContainer/MarginContainer/HBoxContainer/Label.text = Config.get_conf_value("misc", "nickname")
 	
@@ -15,8 +15,8 @@ func _enter_tree():
 		$PanelContainer/MarginContainer/HBoxContainer/HBoxContainer.visible = false
 	
 	dir.copy("res://config_systems_example.txt","user://config_systems_example.txt")
-	#comprobacion de config
-	if f.open("user://config_systems.txt", File.READ) != OK:
+	#comprobacion de configuracion de sistemas
+	if Global.systems_id.empty():
 		$PanelContainer/MarginContainer/Hbx/HBoxContainer/element_icon_help_panel.visible = false
 		$PanelContainer/MarginContainer/Hbx/HBoxContainer/Label.text = tr("SYS_NOT_CONF")
 	else:

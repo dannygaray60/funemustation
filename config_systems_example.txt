@@ -1,23 +1,9 @@
-{
-  "conf": {
-    "selected_system": 0
-  },
-  "systems": {
-    "snes": {
-      "args": [
-        "-fullscreen",
-        "fi"
-      ],
-      "emulator": true,
-      "formats": [
-        "smc",
-        "sfc",
-        "fig"
-      ],
-      "name": "Super Nintendo Entertainment System",
-      "path_emu": "C:\\Users\username\\Saved Games\\Emuladores\\SNES\\Snes9x\\snes9x-x64.exe",
-      "pathrom": "C:\\Users\\username\\Saved Games\\Emuladores\\SNES\\Roms",
-      "selected_file": 0
-    }
-  }
-}
+[nes]
+
+name="Nintendo"
+emulator=true
+path_emu="C:/Users/userdir/Saved Games/Emuladores/NES/Fceux/fceux.exe"
+pathrom="C:/Users/userdir/Saved Games/Emuladores/NES/Roms"
+args=[  ]
+formats=[ "nes" ]
+selected_file=26
