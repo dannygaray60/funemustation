@@ -232,6 +232,16 @@ func _on_TimerToShowWallpaper_timeout():
 func _on_TimerToStartEmu_timeout():
 	var emu_args = Global.sys_data[sys_key]["args"]
 	#añadir el path del archivo como ultimo argumento
+	
+	#si el sistema se configuró para solo usar el nombre
+	#entonces en vez del path de la rom, se usará el nombre del archivo
+	#útil para el emulador winkawaks
+#	if Global.sys_data[sys_key]["use_just_name"]:
+#		f_path = Global.systems_data_filtered[idx_sys_now][f_idx][0]
+#		#en line de comando sería %nombrerom%
+#		f_path = "%%%s%%" % [f_path]
+	
+	
 	if emu_args.empty():
 		emu_args.append(f_path)
 	else:

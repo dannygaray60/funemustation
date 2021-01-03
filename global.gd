@@ -67,6 +67,11 @@ func _enter_tree():
 		if not conf.has_section_key(s, "selected_file"):
 			conf.set_value(s, "selected_file",0)
 		var selected_file = conf.get_value(s,"selected_file")
+		#usar solo nombre de archivo (para poder usar emuladores como winkawaks)
+		#nope... no ha funcionado
+#		if not conf.has_section_key(s, "use_just_name"):
+#			conf.set_value(s, "use_just_name",0)
+#		var use_just_name = conf.get_value(s,"use_just_name")
 
 		sys_data[s] = {
 			"name" : sys_name,
@@ -75,7 +80,8 @@ func _enter_tree():
 			"pathrom" : pathrom,
 			"args" : args,
 			"formats" : formats,
-			"selected_file" : selected_file
+			"selected_file" : selected_file,
+#			"use_just_name" : use_just_name
 		}
 	#guardar keys de configuracion  en caso de que no tenía
 	conf.save("user://systems.ini")
