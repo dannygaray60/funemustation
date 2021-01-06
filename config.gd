@@ -75,6 +75,12 @@ func check_configfile(configfile="user://settings.ini"):
 		
 	if not conf.has_section_key("misc", "selected_system"):
 		conf.set_value("misc", "selected_system",0)
+
+	if not conf.has_section_key("sound", "music"):
+		conf.set_value("sound", "music", 0.5)
+	
+	if not conf.has_section_key("sound", "effects"):
+		conf.set_value("sound", "effects", 0.5)
 	
 #	if not conf.has_section_key("misc", "wallpaper_darkness"):
 #		conf.set_value("misc", "wallpaper_darkness", 0.57)
