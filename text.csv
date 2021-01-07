@@ -35,3 +35,6 @@ FILE_OPENED;File opened;El archivo ha sido abierto
 SURE_EXIT;Are you sure to exit?;¿Está seguro de salir?
 CLOSE_LAUNCHER;Close Launcher;Cerrar Launcher
 GO_TO_LIST;Go to list;Ir a lista
+SOUND;Sound;Volumen
+MUSIC;Music;Música
+EFFECTS;Effects;Efectos

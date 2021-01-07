@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://remapconfig/ActionRemapButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/fonts/ubuntu-font-family/Ubuntu-L.ttf" type="DynamicFontData" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://element_set_btn_icon.tscn" type="PackedScene" id=6]
 [ext_resource path="res://addons/FontAwesome5/fa-solid-900.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://addons/FontAwesome5/FontAwesome.gd" type="Script" id=8]
+[ext_resource path="res://remapconfig/VolumeControl.gd" type="Script" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 15.0
@@ -325,7 +326,7 @@ anchor_top = 0.5
 anchor_bottom = 0.5
 margin_top = -307.0
 margin_right = 636.0
-margin_bottom = 348.0
+margin_bottom = 228.0
 custom_styles/focus = SubResource( 14 )
 disabled = true
 group = SubResource( 15 )
@@ -349,7 +350,7 @@ __meta__ = {
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 616.0
-margin_bottom = 635.0
+margin_bottom = 515.0
 custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
@@ -396,13 +397,13 @@ margin_bottom = 102.0
 [node name="ActionRemapRow3" type="HBoxContainer" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList"]
 margin_top = 117.0
 margin_right = 596.0
-margin_bottom = 175.0
+margin_bottom = 158.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList/ActionRemapRow3"]
 margin_right = 296.0
-margin_bottom = 58.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "MOVE_U"
@@ -412,21 +413,21 @@ valign = 1
 [node name="RemapButton" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList/ActionRemapRow3" instance=ExtResource( 1 )]
 margin_left = 300.0
 margin_right = 596.0
-margin_bottom = 58.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 group = SubResource( 15 )
 
 [node name="ActionRemapRow4" type="HBoxContainer" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList"]
-margin_top = 190.0
+margin_top = 173.0
 margin_right = 596.0
-margin_bottom = 248.0
+margin_bottom = 214.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList/ActionRemapRow4"]
 margin_right = 296.0
-margin_bottom = 58.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "MOVE_D"
@@ -436,22 +437,22 @@ valign = 1
 [node name="RemapButton" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList/ActionRemapRow4" instance=ExtResource( 1 )]
 margin_left = 300.0
 margin_right = 596.0
-margin_bottom = 58.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 group = SubResource( 15 )
 action = "ui_down"
 
 [node name="ActionRemapRow" type="HBoxContainer" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList"]
-margin_top = 263.0
+margin_top = 229.0
 margin_right = 596.0
-margin_bottom = 321.0
+margin_bottom = 270.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList/ActionRemapRow"]
 margin_right = 296.0
-margin_bottom = 58.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "MOVE_L"
@@ -461,22 +462,22 @@ valign = 1
 [node name="RemapButton" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList/ActionRemapRow" instance=ExtResource( 1 )]
 margin_left = 300.0
 margin_right = 596.0
-margin_bottom = 58.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 group = SubResource( 15 )
 action = "ui_left"
 
 [node name="ActionRemapRow2" type="HBoxContainer" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList"]
-margin_top = 336.0
+margin_top = 285.0
 margin_right = 596.0
-margin_bottom = 395.0
+margin_bottom = 326.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList/ActionRemapRow2"]
 margin_right = 296.0
-margin_bottom = 59.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "MOVE_R"
@@ -486,22 +487,22 @@ valign = 1
 [node name="RemapButton" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList/ActionRemapRow2" instance=ExtResource( 1 )]
 margin_left = 300.0
 margin_right = 596.0
-margin_bottom = 59.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 group = SubResource( 15 )
 action = "ui_right"
 
 [node name="ActionRemapRow5" type="HBoxContainer" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList"]
-margin_top = 410.0
+margin_top = 341.0
 margin_right = 596.0
-margin_bottom = 468.0
+margin_bottom = 382.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList/ActionRemapRow5"]
 margin_right = 296.0
-margin_bottom = 58.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "ACCEPT"
@@ -511,22 +512,22 @@ valign = 1
 [node name="RemapButton" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList/ActionRemapRow5" instance=ExtResource( 1 )]
 margin_left = 300.0
 margin_right = 596.0
-margin_bottom = 58.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 group = SubResource( 15 )
 action = "ui_accept"
 
 [node name="ActionRemapRow6" type="HBoxContainer" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList"]
-margin_top = 483.0
+margin_top = 397.0
 margin_right = 596.0
-margin_bottom = 541.0
+margin_bottom = 438.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList/ActionRemapRow6"]
 margin_right = 296.0
-margin_bottom = 58.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "CANCEL"
@@ -536,22 +537,22 @@ valign = 1
 [node name="RemapButton" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList/ActionRemapRow6" instance=ExtResource( 1 )]
 margin_left = 300.0
 margin_right = 596.0
-margin_bottom = 58.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 group = SubResource( 15 )
 action = "ui_cancel"
 
 [node name="ActionRemapRow7" type="HBoxContainer" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList"]
-margin_top = 556.0
+margin_top = 453.0
 margin_right = 596.0
-margin_bottom = 615.0
+margin_bottom = 495.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList/ActionRemapRow7"]
 margin_right = 296.0
-margin_bottom = 59.0
+margin_bottom = 42.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Combo"
@@ -561,12 +562,12 @@ valign = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList/ActionRemapRow7"]
 margin_left = 300.0
 margin_right = 596.0
-margin_bottom = 59.0
+margin_bottom = 42.0
 size_flags_horizontal = 3
 
 [node name="RemapButton" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList/ActionRemapRow7/HBoxContainer" instance=ExtResource( 1 )]
 margin_right = 71.0
-margin_bottom = 59.0
+margin_bottom = 42.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 group = SubResource( 15 )
@@ -577,7 +578,7 @@ action = "combo1"
 [node name="RemapButton2" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList/ActionRemapRow7/HBoxContainer" instance=ExtResource( 1 )]
 margin_left = 75.0
 margin_right = 146.0
-margin_bottom = 59.0
+margin_bottom = 42.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 group = SubResource( 15 )
@@ -588,7 +589,7 @@ action = "combo2"
 [node name="RemapButton3" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList/ActionRemapRow7/HBoxContainer" instance=ExtResource( 1 )]
 margin_left = 150.0
 margin_right = 221.0
-margin_bottom = 59.0
+margin_bottom = 42.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 group = SubResource( 15 )
@@ -599,7 +600,7 @@ action = "combo3"
 [node name="RemapButton4" parent="RemapButtonGroupKeyBoard/MarginContainer/ActionsList/ActionRemapRow7/HBoxContainer" instance=ExtResource( 1 )]
 margin_left = 225.0
 margin_right = 296.0
-margin_bottom = 59.0
+margin_bottom = 42.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 group = SubResource( 15 )
@@ -722,6 +723,76 @@ margin_right = 368.0
 margin_bottom = 37.0
 text = "Nickname"
 
+[node name="VolumeControl" type="Control" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 80.0
+margin_top = -148.0
+margin_right = 604.0
+margin_bottom = -13.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VolumeControl"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VolumeControl/VBoxContainer"]
+margin_right = 524.0
+margin_bottom = 34.0
+text = "SOUND"
+align = 1
+valign = 1
+
+[node name="HBoxMusic" type="HBoxContainer" parent="VolumeControl/VBoxContainer"]
+margin_top = 38.0
+margin_right = 524.0
+margin_bottom = 72.0
+
+[node name="Label" type="Label" parent="VolumeControl/VBoxContainer/HBoxMusic"]
+margin_right = 260.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+text = "MUSIC"
+align = 1
+valign = 1
+
+[node name="SliderMusic" type="HSlider" parent="VolumeControl/VBoxContainer/HBoxMusic"]
+margin_left = 264.0
+margin_right = 524.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.05
+
+[node name="HBoxEffects" type="HBoxContainer" parent="VolumeControl/VBoxContainer"]
+margin_top = 76.0
+margin_right = 524.0
+margin_bottom = 110.0
+
+[node name="Label" type="Label" parent="VolumeControl/VBoxContainer/HBoxEffects"]
+margin_right = 260.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+text = "EFFECTS"
+align = 1
+valign = 1
+
+[node name="SliderEffects" type="HSlider" parent="VolumeControl/VBoxContainer/HBoxEffects"]
+margin_left = 264.0
+margin_right = 524.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.05
+
 [node name="element_btn_min_close_win" parent="." instance=ExtResource( 5 )]
 mouse_filter = 2
 [connection signal="pressed" from="ControlOtherSettings/MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_ChangeLang" binds= [ "en" ]]
@@ -734,3 +805,5 @@ mouse_filter = 2
 [connection signal="pressed" from="RemapButtonGroupKeyBoard/MarginContainer/ActionsList/HBoxContainer/CheckBox" to="." method="_on_ChangeInputMode" binds= [ "keyboard" ]]
 [connection signal="pressed" from="RemapButtonGroupKeyBoard/MarginContainer/ActionsList/HBoxContainer/CheckBox2" to="." method="_on_ChangeInputMode" binds= [ "gamepad" ]]
 [connection signal="pressed" from="BtnGoMenu" to="." method="_on_BtnGoMenu_pressed"]
+[connection signal="value_changed" from="VolumeControl/VBoxContainer/HBoxMusic/SliderMusic" to="VolumeControl" method="_on_SliderMusic_value_changed"]
+[connection signal="value_changed" from="VolumeControl/VBoxContainer/HBoxEffects/SliderEffects" to="VolumeControl" method="_on_SliderEffects_value_changed"]

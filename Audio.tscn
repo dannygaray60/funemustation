@@ -12,30 +12,37 @@
 [node name="Audio" type="Node"]
 script = ExtResource( 1 )
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="." groups=[
+"music",
+]]
 stream = ExtResource( 2 )
-volume_db = -3.0
 
-[node name="Accept" type="AudioStreamPlayer" parent="."]
+[node name="Accept" type="AudioStreamPlayer" parent="." groups=[
+"effects",
+]]
 stream = ExtResource( 3 )
-volume_db = 4.0
 
-[node name="Alert" type="AudioStreamPlayer" parent="."]
+[node name="Alert" type="AudioStreamPlayer" parent="." groups=[
+"effects",
+]]
 stream = ExtResource( 5 )
-volume_db = -9.0
 
-[node name="ChangeItem" type="AudioStreamPlayer" parent="."]
+[node name="ChangeItem" type="AudioStreamPlayer" parent="." groups=[
+"effects",
+]]
 stream = ExtResource( 6 )
-volume_db = -4.0
 
-[node name="ChangeSection" type="AudioStreamPlayer" parent="."]
+[node name="ChangeSection" type="AudioStreamPlayer" parent="." groups=[
+"effects",
+]]
 stream = ExtResource( 8 )
-volume_db = -8.0
 
-[node name="GoBack" type="AudioStreamPlayer" parent="."]
+[node name="GoBack" type="AudioStreamPlayer" parent="." groups=[
+"effects",
+]]
 stream = ExtResource( 4 )
-volume_db = 4.0
 
-[node name="Intro" type="AudioStreamPlayer" parent="."]
+[node name="Intro" type="AudioStreamPlayer" parent="." groups=[
+"music",
+]]
 stream = ExtResource( 7 )
-volume_db = 5.0
