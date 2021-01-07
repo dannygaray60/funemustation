@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://remapconfig/ActionRemapButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/fonts/ubuntu-font-family/Ubuntu-L.ttf" type="DynamicFontData" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://addons/FontAwesome5/fa-solid-900.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://addons/FontAwesome5/FontAwesome.gd" type="Script" id=8]
 [ext_resource path="res://remapconfig/VolumeControl.gd" type="Script" id=9]
+[ext_resource path="res://assets/grabber.png" type="Texture" id=10]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 15.0
@@ -155,6 +156,10 @@ TextEdit/styles/read_only = null
 [sub_resource type="DynamicFont" id=18]
 size = 36
 font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxLine" id=19]
+color = Color( 1, 1, 1, 1 )
+thickness = 2
 
 [node name="InputRemapMenu" type="Control"]
 anchor_right = 1.0
@@ -768,6 +773,12 @@ margin_right = 524.0
 margin_bottom = 34.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+custom_icons/grabber_disabled = ExtResource( 10 )
+custom_icons/grabber_highlight = ExtResource( 10 )
+custom_icons/grabber = ExtResource( 10 )
+custom_styles/slider = SubResource( 19 )
+custom_styles/grabber_area_highlight = SubResource( 19 )
+custom_styles/grabber_area = SubResource( 19 )
 max_value = 1.0
 step = 0.05
 
@@ -790,6 +801,12 @@ margin_right = 524.0
 margin_bottom = 34.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+custom_icons/grabber_disabled = ExtResource( 10 )
+custom_icons/grabber_highlight = ExtResource( 10 )
+custom_icons/grabber = ExtResource( 10 )
+custom_styles/slider = SubResource( 19 )
+custom_styles/grabber_area_highlight = SubResource( 19 )
+custom_styles/grabber_area = SubResource( 19 )
 max_value = 1.0
 step = 0.05
 
