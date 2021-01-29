@@ -31,26 +31,26 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="."]
 margin_left = 64.0
-margin_top = 8.0
-margin_right = 123.0
-margin_bottom = 42.0
+margin_top = 6.0
+margin_right = 128.0
+margin_bottom = 43.0
 text = "Text"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 137.0
-margin_right = 230.0
+margin_left = 142.0
+margin_right = 237.0
 margin_bottom = 50.0
 custom_constants/separation = -1
 
 [node name="BtnPrev" type="Button" parent="HBoxContainer"]
-margin_right = 47.0
+margin_right = 48.0
 margin_bottom = 50.0
 custom_styles/focus = SubResource( 1 )
 text = "<"
 
 [node name="BtnNext" type="Button" parent="HBoxContainer"]
-margin_left = 46.0
-margin_right = 93.0
+margin_left = 47.0
+margin_right = 95.0
 margin_bottom = 50.0
 custom_styles/focus = SubResource( 2 )
 text = ">"

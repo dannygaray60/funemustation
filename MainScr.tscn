@@ -139,14 +139,14 @@ margin_right = 165.0
 margin_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_pivot_offset = Vector2( 198.5, 169 )
+rect_pivot_offset = Vector2( 165, 170.5 )
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TextureRect" type="TextureRect" parent="Logo"]
-margin_right = 397.0
+margin_right = 330.0
 margin_bottom = 300.0
 rect_min_size = Vector2( 100, 300 )
 texture = ExtResource( 5 )
@@ -155,9 +155,9 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="Logo"]
 margin_top = 304.0
-margin_right = 397.0
-margin_bottom = 338.0
-text = "FunEmuStation Launcher v1.0"
+margin_right = 330.0
+margin_bottom = 341.0
+text = "FES Launcher v1.3"
 align = 1
 valign = 1
 
@@ -224,20 +224,20 @@ __meta__ = {
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
 margin_left = 20.0
-margin_right = 412.0
+margin_right = 218.0
 margin_bottom = 81.0
 size_flags_horizontal = 0
 custom_constants/separation = 14
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer"]
-margin_top = 23.0
-margin_right = 116.0
-margin_bottom = 57.0
+margin_top = 22.0
+margin_right = 126.0
+margin_bottom = 59.0
 text = "Message"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
-margin_left = 130.0
-margin_right = 392.0
+margin_left = 140.0
+margin_right = 198.0
 margin_bottom = 81.0
 custom_constants/separation = 10
 
@@ -267,6 +267,7 @@ icon_name = "donate"
 [node name="Button3" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/HBoxContainer" groups=[
 "dev_btn",
 ]]
+visible = false
 margin_left = 68.0
 margin_right = 126.0
 margin_bottom = 81.0
@@ -291,6 +292,7 @@ icon_name = "facebook"
 [node name="Button4" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/HBoxContainer" groups=[
 "dev_btn",
 ]]
+visible = false
 margin_left = 136.0
 margin_right = 194.0
 margin_bottom = 81.0
@@ -315,6 +317,7 @@ icon_name = "blogger"
 [node name="Button5" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/HBoxContainer" groups=[
 "dev_btn",
 ]]
+visible = false
 margin_left = 204.0
 margin_right = 262.0
 margin_bottom = 81.0
@@ -347,9 +350,9 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/Hbx"]
-margin_left = 643.0
-margin_right = 909.0
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/MarginContainer/Hbx"]
+margin_left = 241.0
+margin_right = 513.0
 margin_bottom = 81.0
 custom_constants/separation = 6
 alignment = 2
@@ -357,14 +360,14 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="element_icon_help_panel" parent="PanelContainer/MarginContainer/Hbx/HBoxContainer" instance=ExtResource( 10 )]
-margin_right = 66.0
+[node name="element_icon_help_panel" parent="PanelContainer/MarginContainer/Hbx/HBoxContainer3" instance=ExtResource( 10 )]
+margin_right = 72.0
 margin_bottom = 81.0
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Hbx/HBoxContainer"]
-margin_left = 72.0
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Hbx/HBoxContainer3"]
+margin_left = 78.0
 margin_top = 20.0
-margin_right = 266.0
+margin_right = 272.0
 margin_bottom = 60.0
 custom_fonts/font = SubResource( 8 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.729412 )
@@ -377,8 +380,39 @@ __meta__ = {
 "_editor_description_": ""
 }
 
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/Hbx"]
+margin_left = 563.0
+margin_right = 903.0
+margin_bottom = 81.0
+custom_constants/separation = 6
+alignment = 2
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="element_icon_help_panel" parent="PanelContainer/MarginContainer/Hbx/HBoxContainer" instance=ExtResource( 10 )]
+margin_right = 72.0
+margin_bottom = 81.0
+action = "ui_accept2"
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Hbx/HBoxContainer"]
+margin_left = 78.0
+margin_top = 20.0
+margin_right = 340.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.729412 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 2
+text = "RANDOM_GAME"
+align = 1
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/Hbx"]
-margin_left = 959.0
+margin_left = 953.0
 margin_right = 1326.0
 margin_bottom = 81.0
 custom_constants/separation = 6
@@ -388,14 +422,14 @@ __meta__ = {
 }
 
 [node name="element_icon_help_panel" parent="PanelContainer/MarginContainer/Hbx/HBoxContainer2" instance=ExtResource( 10 )]
-margin_right = 66.0
+margin_right = 72.0
 margin_bottom = 81.0
 action = "ui_cancel"
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/Hbx/HBoxContainer2"]
-margin_left = 72.0
+margin_left = 78.0
 margin_top = 20.0
-margin_right = 367.0
+margin_right = 373.0
 margin_bottom = 60.0
 custom_fonts/font = SubResource( 8 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.729412 )

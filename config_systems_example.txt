@@ -7,3 +7,4 @@ pathrom="C:/Users/userdir/Saved Games/Emuladores/NES/Roms"
 args=[  ]
 formats=[ "nes" ]
 selected_file=26
+use_just_name=false

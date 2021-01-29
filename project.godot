@@ -100,6 +100,10 @@ ui_end={
 "deadzone": 0.5,
 "events": [  ]
 }
+ui_accept2={
+"deadzone": 0.5,
+"events": [  ]
+}
 ui_window_minimize={
 "deadzone": 0.5,
 "events": [  ]

@@ -51,12 +51,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -612.0
-margin_top = -332.0
+margin_top = -309.0
 margin_right = 612.0
-margin_bottom = 266.0
+margin_bottom = 288.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "FunEmuStation Launcher v1.0
+text = "FunEmuStation Launcher v1.3 (FES Launcher).
 -------------------------------
 Developer: Danny Garay (dannygaray60@gmail.com)
 
@@ -82,7 +82,7 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -93.0
+margin_top = -70.0
 grow_horizontal = 2
 grow_vertical = 0
 custom_constants/separation = 36
@@ -92,36 +92,38 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="HBoxContainer"]
-margin_left = 239.0
-margin_right = 367.0
-margin_bottom = 93.0
+margin_left = 215.0
+margin_right = 350.0
+margin_bottom = 70.0
 text = "Donate"
 
 [node name="Button2" type="Button" parent="HBoxContainer"]
-margin_left = 403.0
-margin_right = 612.0
-margin_bottom = 93.0
+margin_left = 386.0
+margin_right = 608.0
+margin_bottom = 70.0
 text = "Buy on Itch.io"
 
 [node name="Button3" type="Button" parent="HBoxContainer"]
-margin_left = 648.0
-margin_right = 805.0
-margin_bottom = 93.0
+margin_left = 644.0
+margin_right = 813.0
+margin_bottom = 70.0
 text = "Facebook"
 
 [node name="Button4" type="Button" parent="HBoxContainer"]
-margin_left = 841.0
-margin_right = 961.0
-margin_bottom = 93.0
+margin_left = 849.0
+margin_right = 975.0
+margin_bottom = 70.0
 text = "Github"
 
 [node name="Button5" type="Button" parent="HBoxContainer"]
-margin_left = 997.0
-margin_right = 1127.0
-margin_bottom = 93.0
+margin_left = 1011.0
+margin_right = 1150.0
+margin_bottom = 70.0
 text = "Discord"
 
 [node name="element_btn_min_close_win" parent="." instance=ExtResource( 3 )]
+margin_top = 2.0
+margin_bottom = 2.0
 mouse_filter = 2
 [connection signal="pressed" from="BtnBack" to="." method="_on_BtnBack_pressed"]
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_GoURL" binds= [ "https://ko-fi.com/dannygaray60" ]]

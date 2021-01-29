@@ -8,6 +8,9 @@ func _ready():
 	
 	$ControlOtherSettings/MarginContainer2/VBoxContainer/Gamepadmapping/VBoxContainer/TextEdit.text = Config.get_conf_value("misc","gamepad_mapping")
 
+	$ControlOtherSettings/MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/ChkLstMode.pressed = Config.get_conf_value("roms", "list_mode")
+#	$ControlOtherSettings/MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/ChkDinamicLoad.pressed = Config.get_conf_value("roms", "dinamic_load")
+
 #	_on_ChangeInputMode(input_mode)
 	
 	match input_mode:
@@ -71,7 +74,8 @@ func _on_OpenURL(url):
 	Audio.get_node("Accept").play()
 	if url == "data_dir":
 		# warning-ignore:return_value_discarded
-		OS.shell_open( OS.get_user_data_dir() )
+#		OS.shell_open( OS.get_user_data_dir() )
+		OS.shell_open( Global.data_path )
 	else:
 		# warning-ignore:return_value_discarded
 		OS.shell_open(url)
@@ -89,3 +93,11 @@ func _on_ResetMapping():
 	Audio.get_node("GoBack").play()
 	$ControlOtherSettings/MarginContainer2/VBoxContainer/Gamepadmapping/VBoxContainer/TextEdit.text = ""
 	_on_ApplyMapping()
+
+#cuando el valor del check cambia
+func _on_Chk_toggled(button_pressed, opt):
+	Config.set_conf_value("roms",opt,button_pressed)
+
+#al presionar un check
+func _on_Chk_pressed():
+	Audio.get_node("ChangeItem").play()

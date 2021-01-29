@@ -21,14 +21,35 @@ var f_path = ""
 
 var total_loaded_games = 0
 
+#lista de roms del sistema elegido
+var roms
+
 func _ready():
-	idx_sys_now = Functions.get_new_position_on_array(
-		Global.systems_id,
-		Config.get_conf_value("misc","selected_system"),
-		"none"
-	)
-	load_system_data()
-	$TimerToShowWallpaper.start()
+	
+#	if Global.view_favs:
+#		pass
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
+
+	
+	if Global.random_game:
+		randomize()
+		idx_sys_now = Functions.get_new_position_on_array(
+			Global.systems_id,
+			randi() % Global.systems_id.size(),
+			"none"
+		)
+		load_system_data()
+	
+	else:
+		idx_sys_now = Functions.get_new_position_on_array(
+			Global.systems_id,
+			Config.get_conf_value("misc","selected_system"),
+			"none"
+		)
+		load_system_data()
+		$TimerToShowWallpaper.start()
 	
 func _process(_delta):
 	
@@ -62,7 +83,6 @@ func _process(_delta):
 		last_action = "next"
 		load_system_file_data("next")
 		
-	
 	elif Input.is_action_just_pressed("ui_accept") and total_loaded_games > 0:
 		last_action = "none"
 		$AnimationPlayer.play("wait")
@@ -81,34 +101,44 @@ func _process(_delta):
 		Global.save_system_conf()
 		SceneChanger.change_scene("res://MainScr.tscn")
 		
-	if Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):
+	elif Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):
 		last_action = "none"
 		$Timer.stop()
 		$TimerToShowWallpaper.start()
 		Config.set_conf_value("misc","selected_system",idx_sys_now) 
 		Global.save_system_conf()
+		
+#	elif Input.is_action_just_pressed("ui_accept2"):
+#		if Functions.add_rom_to_fav([idx_sys_now,f_idx]):
+#			$Notification.notif($ControlSection/PanelTitle/Label.text+" "+tr("ADDED_FAV"))
+#		else:
+#			$Notification.notif(tr("ALREADY_ADDED_FAV"))
+#		Audio.get_node("ChangeItem").play()
+		
 
 	
 func load_system_data(opt="none"):
 	
+	idx_sys_now = Functions.get_new_position_on_array(
+		Global.systems_id,
+		idx_sys_now,
+		opt
+	)
+	roms = Global.systems_data_filtered[idx_sys_now]
+	
 	#sin archivos no cargamos nada
-	if Global.systems_data_filtered[idx_sys_now].size() < 1:
+	if roms.size() < 1:
 		$ControlSection.visible = false
 		$PanelHelp/MarginContainer/HBoxContainer/A.visible = false
 		return
 	else:
 		$PanelHelp/MarginContainer/HBoxContainer/A.visible = true
 		$ControlSection.visible = true
-
-	idx_sys_now = Functions.get_new_position_on_array(
-		Global.systems_id,
-		idx_sys_now,
-		opt
-	)
+	
 	Config.set_conf_value("misc","selected_system",idx_sys_now) 
 	sys_key = Global.systems_id[idx_sys_now]
 	sys_name = Global.sys_data[sys_key]["name"]
-	total_loaded_games = Global.systems_data_filtered[idx_sys_now].size()
+	total_loaded_games = roms.size()
 	
 	#guardar ruta del sistema
 	sys_path = Global.sys_data[sys_key]["path_emu"]
@@ -153,17 +183,29 @@ func load_system_data(opt="none"):
 		$ControlSection/GameCovers/HBoxContainer/Item2.modulate.a = 1
 		$ControlSection/GameCovers/HBoxContainer/Item3.modulate.a = 1
 		$ControlSection/GameCovers/HBoxContainer/Item4.modulate.a = 1
+		
+	#si es random, se cambia aleatoriamente el selected file
+	if Global.random_game:
+		Global.random_game = false
+		randomize()
+		var random_game_idx = Functions.get_new_position_on_array(
+			roms,
+			randi() % roms.size(),
+			"none"
+		)
+		Global.conf.set_value(sys_key,"selected_file",random_game_idx)
 
 	load_system_file_data()
 
 func load_system_file_data(opt="none"):
+#	print(str(roms[f_idx]))
 	$Tween.stop_all()
 	$TimerToShowWallpaper.stop()
 	#quitar cualquier textura del wallpaper
 	$GameBG.texture = null
 	$GameBG.modulate.a = 0
 	f_idx = Functions.get_new_position_on_array(
-		Global.systems_data_filtered[idx_sys_now],
+		roms,
 		Global.conf.get_value(sys_key,"selected_file",0),
 		opt
 	)
@@ -174,7 +216,7 @@ func load_system_file_data(opt="none"):
 	Global.save_system_conf()
 	var f_idx_extra = 0
 	
-	f_path = Global.systems_data_filtered[idx_sys_now][f_idx][3]
+	f_path = roms[f_idx][3]
 	
 	#el nombre de rom elegida
 	#todo este bloque es para que el panel se ajuste al texto
@@ -182,37 +224,41 @@ func load_system_file_data(opt="none"):
 	$ControlSection/PanelTitle/Label.text = ""
 	$ControlSection/PanelTitle/Label.hide()
 	$ControlSection/PanelTitle.rect_size = Vector2(712,77)
-	$ControlSection/PanelTitle/Label.text = Global.systems_data_filtered[idx_sys_now][f_idx][0]
+	$ControlSection/PanelTitle/Label.text = roms[f_idx][0]
 	$ControlSection/PanelTitle/Label.show()
 	
+	roms[f_idx][1] = Functions.get_texture_from_path(roms[f_idx][1])
+	
 	#el cover de la rom
-	if Global.systems_data_filtered[idx_sys_now][f_idx][1] == null:
+	if roms[f_idx][1] == null:
 		$ControlSection/GameCovers/HBoxContainer/Item0/TextureRect.texture = load("res://assets/no_cover.jpg")
 	else:
-		$ControlSection/GameCovers/HBoxContainer/Item0/TextureRect.texture = Global.systems_data_filtered[idx_sys_now][f_idx][1]
-	$ControlSection/GameCovers/HBoxContainer/Item0/TextureRect2.texture = Global.systems_data_filtered[idx_sys_now][f_idx][1]
+		$ControlSection/GameCovers/HBoxContainer/Item0/TextureRect.texture = roms[f_idx][1]
+	$ControlSection/GameCovers/HBoxContainer/Item0/TextureRect2.texture = $ControlSection/GameCovers/HBoxContainer/Item0/TextureRect.texture
 	
 	#colocar cover al espacio izquierdo del cover principal
 	f_idx_extra = Functions.get_new_position_on_array(
-		Global.systems_data_filtered[idx_sys_now],
+		roms,
 		f_idx,
 		"prev"
 	)
-	$ControlSection/GameCovers/HBoxContainer/ItemPrev/MarginContainer/Label.text = Global.systems_data_filtered[idx_sys_now][f_idx_extra][0]
-	$ControlSection/GameCovers/HBoxContainer/ItemPrev/TextureRect.texture = Global.systems_data_filtered[idx_sys_now][f_idx_extra][1]
-	$ControlSection/GameCovers/HBoxContainer/ItemPrev/TextureRect2.texture = Global.systems_data_filtered[idx_sys_now][f_idx_extra][1]	
+	roms[f_idx_extra][1] = Functions.get_texture_from_path(roms[f_idx_extra][1])
+	$ControlSection/GameCovers/HBoxContainer/ItemPrev/MarginContainer/Label.text = roms[f_idx_extra][0]
+	$ControlSection/GameCovers/HBoxContainer/ItemPrev/TextureRect.texture = roms[f_idx_extra][1]
+	$ControlSection/GameCovers/HBoxContainer/ItemPrev/TextureRect2.texture = $ControlSection/GameCovers/HBoxContainer/ItemPrev/TextureRect.texture
 	
 	f_idx_extra = f_idx
 	#recorremos el resto de lugares para colocar los covers faltantes a partir del cover principal
 	for n in [1,2,3,4]:
 		f_idx_extra = Functions.get_new_position_on_array(
-			Global.systems_data_filtered[idx_sys_now],
+			roms,
 			f_idx_extra,
 			"next"
 		)
-		get_node("ControlSection/GameCovers/HBoxContainer/Item%d/MarginContainer/Label"%[n]).text = Global.systems_data_filtered[idx_sys_now][f_idx_extra][0]
-		get_node("ControlSection/GameCovers/HBoxContainer/Item%d/TextureRect"%[n]).texture = Global.systems_data_filtered[idx_sys_now][f_idx_extra][1]
-		get_node("ControlSection/GameCovers/HBoxContainer/Item%d/TextureRect2"%[n]).texture = Global.systems_data_filtered[idx_sys_now][f_idx_extra][1]
+		roms[f_idx_extra][1] = Functions.get_texture_from_path(roms[f_idx_extra][1])
+		get_node("ControlSection/GameCovers/HBoxContainer/Item%d/MarginContainer/Label"%[n]).text = roms[f_idx_extra][0]
+		get_node("ControlSection/GameCovers/HBoxContainer/Item%d/TextureRect"%[n]).texture = roms[f_idx_extra][1]
+		get_node("ControlSection/GameCovers/HBoxContainer/Item%d/TextureRect2"%[n]).texture = get_node("ControlSection/GameCovers/HBoxContainer/Item%d/TextureRect"%[n]).texture
 
 func _on_Timer_timeout():
 	$Timer.wait_time = 0.09
@@ -221,8 +267,9 @@ func _on_Timer_timeout():
 		load_system_file_data(last_action)
 
 func _on_TimerToShowWallpaper_timeout():
-	if total_loaded_games > 0 and Global.systems_data_filtered[idx_sys_now][f_idx][2] != null:
-		$GameBG.texture = Global.systems_data_filtered[idx_sys_now][f_idx][2]
+	if total_loaded_games > 0 and roms[f_idx][2] != null:
+		roms[f_idx][2] = Functions.get_texture_from_path(roms[f_idx][2])
+		$GameBG.texture = roms[f_idx][2]
 		$Tween.interpolate_property($GameBG,"modulate",Color(1,1,1,0),Color(1,1,1,1),0.3,
 			Tween.TRANS_LINEAR,Tween.TRANS_LINEAR)
 		$Tween.start()
@@ -236,11 +283,10 @@ func _on_TimerToStartEmu_timeout():
 	#si el sistema se configuró para solo usar el nombre
 	#entonces en vez del path de la rom, se usará el nombre del archivo
 	#útil para el emulador winkawaks
-#	if Global.sys_data[sys_key]["use_just_name"]:
-#		f_path = Global.systems_data_filtered[idx_sys_now][f_idx][0]
-#		#en line de comando sería %nombrerom%
-#		f_path = "%%%s%%" % [f_path]
-	
+	if Global.sys_data[sys_key]["use_just_name"]:
+		f_path = roms[f_idx][0]
+		#en linea de comando sería nombrerom
+		f_path = "%s" % [f_path]
 	
 	if emu_args.empty():
 		emu_args.append(f_path)
@@ -269,8 +315,8 @@ func _on_TimerToStartEmu_timeout():
 	#ya que por alguna razón el emu_args y los argumentos de variable data están enlazados, ni idea de por qué
 	i = 0
 	for a in emu_args:
-		#de entre argumentos, reemplazar file por el path
-		if "\\" in a:
+		#de entre argumentos, el path (o el nombre de rom) por "fi"
+		if "\\" in a or a == f_path:
 			emu_args[i] = "fi"
 		i += 1
 	

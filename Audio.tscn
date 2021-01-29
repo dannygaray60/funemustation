@@ -43,6 +43,6 @@ stream = ExtResource( 8 )
 stream = ExtResource( 4 )
 
 [node name="Intro" type="AudioStreamPlayer" parent="." groups=[
-"music",
+"effects",
 ]]
 stream = ExtResource( 7 )

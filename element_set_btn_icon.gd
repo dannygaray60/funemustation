@@ -22,6 +22,8 @@ func _ready():
 	match action:
 		"ui_accept":
 			$Label.text = tr("ACCEPT")
+		"ui_accept2":
+			$Label.text = tr("ACCEPT2")
 		"ui_cancel":
 			$Label.text = tr("CANCEL")
 			

@@ -2,6 +2,16 @@ extends Node
 
 var dir = Directory.new()
 
+func add_rom_to_fav(args=[]):
+	var lst = Config.get_conf_value("favorites","list")
+	
+	if lst.has(args):
+		return false
+	
+	lst.append(args)
+	Config.set_conf_value("favorites","list",lst)
+	return true
+
 func get_dirs(path):
 	var dirs = []
 	dir.open(path)
@@ -24,6 +34,14 @@ func get_files(path):
 		fd = dir.get_next()
 	#retornara un string con el nombre y extension del archivo
 	return files
+
+#retorna una textura a partir de p (path) o retorna textura si p es textura
+func get_texture_from_path(p):
+	if p == null:
+		return
+	if typeof(p) == TYPE_STRING:
+		p = create_texture_from(p)
+	return p
 
 func create_texture_from(filepath):
 #	print("creando textura de %s"%filepath)

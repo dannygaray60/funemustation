@@ -33,8 +33,15 @@ MOVE_L;Move Left;Mover Izquierda
 MOVE_R;Move Right;Mover Derecha
 FILE_OPENED;File opened;El archivo ha sido abierto
 SURE_EXIT;Are you sure to exit?;¿Está seguro de salir?
-CLOSE_LAUNCHER;Close Launcher;Cerrar Launcher
+CLOSE_LAUNCHER;Close;Cerrar
 GO_TO_LIST;Go to list;Ir a lista
+RANDOM_GAME;Random Game;Juego Aleat.
 SOUND;Sound;Volumen
 MUSIC;Music;Música
 EFFECTS;Effects;Efectos
+ROMS_LST_MODE;Roms in list mode;Roms en modo de lista
+ROMS_DINAMIC_LOAD;Load Images of Roms at start;Cargar imágenes de roms al inicio
+ACCEPT2;Secondary Action;Acción Secundaria
+FAV;+ Favorite;+ Favorito
+ADDED_FAV;added to favorites;agregado a favoritos
+ALREADY_ADDED_FAV;Already added to favorites;Ya ha sido agregado a favoritos

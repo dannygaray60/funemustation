@@ -70,6 +70,7 @@ __meta__ = {
 [node name="InfoDevice" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 margin_left = 760.0
+margin_top = 15.0
 margin_right = -129.0
 margin_bottom = 52.0
 grow_horizontal = 0
@@ -81,17 +82,17 @@ __meta__ = {
 }
 
 [node name="Date" type="HBoxContainer" parent="InfoDevice"]
-margin_left = 62.0
-margin_right = 174.0
-margin_bottom = 52.0
+margin_left = 48.0
+margin_right = 164.0
+margin_bottom = 37.0
 grow_horizontal = 0
 custom_constants/separation = 7
 alignment = 2
 
 [node name="Icon" type="Label" parent="InfoDevice/Date"]
-margin_top = 10.0
+margin_top = 3.0
 margin_right = 26.0
-margin_bottom = 41.0
+margin_bottom = 34.0
 custom_fonts/font = SubResource( 1 )
 text = ""
 align = 1
@@ -111,23 +112,22 @@ icon_name = "calendar-alt"
 
 [node name="Lbl" type="Label" parent="InfoDevice/Date"]
 margin_left = 33.0
-margin_top = 9.0
-margin_right = 112.0
-margin_bottom = 43.0
+margin_right = 116.0
+margin_bottom = 37.0
 text = "31/12"
 
 [node name="Hour" type="HBoxContainer" parent="InfoDevice"]
-margin_left = 196.0
-margin_right = 308.0
-margin_bottom = 52.0
+margin_left = 186.0
+margin_right = 303.0
+margin_bottom = 37.0
 grow_horizontal = 0
 custom_constants/separation = 7
 alignment = 2
 
 [node name="Icon" type="Label" parent="InfoDevice/Hour"]
-margin_top = 10.0
+margin_top = 3.0
 margin_right = 30.0
-margin_bottom = 41.0
+margin_bottom = 34.0
 custom_fonts/font = SubResource( 2 )
 text = ""
 align = 1
@@ -147,23 +147,22 @@ icon_name = "clock"
 
 [node name="Lbl" type="Label" parent="InfoDevice/Hour"]
 margin_left = 37.0
-margin_top = 9.0
-margin_right = 112.0
-margin_bottom = 43.0
+margin_right = 117.0
+margin_bottom = 37.0
 text = "24:00"
 
 [node name="Battery" type="HBoxContainer" parent="InfoDevice"]
-margin_left = 330.0
+margin_left = 325.0
 margin_right = 477.0
-margin_bottom = 52.0
+margin_bottom = 37.0
 grow_horizontal = 0
 custom_constants/separation = 7
 alignment = 2
 
 [node name="Icon2" type="Label" parent="InfoDevice/Battery"]
-margin_top = 10.0
+margin_top = 3.0
 margin_right = 19.0
-margin_bottom = 41.0
+margin_bottom = 34.0
 custom_fonts/font = SubResource( 3 )
 text = ""
 align = 1
@@ -183,9 +182,9 @@ icon_name = "bolt"
 
 [node name="Icon" type="Label" parent="InfoDevice/Battery"]
 margin_left = 26.0
-margin_top = 10.0
+margin_top = 3.0
 margin_right = 64.0
-margin_bottom = 41.0
+margin_bottom = 34.0
 custom_fonts/font = SubResource( 4 )
 text = ""
 align = 1
@@ -205,9 +204,8 @@ icon_name = "battery-full"
 
 [node name="Lbl" type="Label" parent="InfoDevice/Battery"]
 margin_left = 71.0
-margin_top = 9.0
-margin_right = 147.0
-margin_bottom = 43.0
+margin_right = 152.0
+margin_bottom = 37.0
 text = "100%"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

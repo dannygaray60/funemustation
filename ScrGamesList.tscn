@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://addons/FontAwesome5/fa-solid-900.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/ubuntu-font-family/Ubuntu-L.ttf" type="DynamicFontData" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://ScrGamesList.gd" type="Script" id=13]
 [ext_resource path="res://Theme.tres" type="Theme" id=14]
 [ext_resource path="res://assets/grabber.png" type="Texture" id=15]
+[ext_resource path="res://Notification.tscn" type="PackedScene" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 29
@@ -241,7 +242,7 @@ margin_right = 352.0
 margin_bottom = 49.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.635294 )
-text = "FunEmuStation Launcher v1.0"
+text = "FES Launcher v1.3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -760,19 +761,43 @@ margin_right = 1346.0
 margin_bottom = 81.0
 custom_constants/separation = 50
 
+[node name="B" type="HBoxContainer" parent="PanelHelp/MarginContainer/HBoxContainer"]
+margin_right = 164.0
+margin_bottom = 81.0
+custom_constants/separation = 6
+
+[node name="element_icon_help_panel" parent="PanelHelp/MarginContainer/HBoxContainer/B" instance=ExtResource( 4 )]
+margin_right = 72.0
+margin_bottom = 81.0
+action = "ui_cancel"
+
+[node name="Label" type="Label" parent="PanelHelp/MarginContainer/HBoxContainer/B"]
+margin_left = 78.0
+margin_top = 20.0
+margin_right = 164.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.729412 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 2
+text = "BACK"
+align = 1
+valign = 1
+
 [node name="A" type="HBoxContainer" parent="PanelHelp/MarginContainer/HBoxContainer"]
-margin_right = 153.0
+margin_left = 214.0
+margin_right = 373.0
 margin_bottom = 81.0
 custom_constants/separation = 6
 
 [node name="element_icon_help_panel" parent="PanelHelp/MarginContainer/HBoxContainer/A" instance=ExtResource( 4 )]
-margin_right = 66.0
+margin_right = 72.0
 margin_bottom = 81.0
 
 [node name="Label" type="Label" parent="PanelHelp/MarginContainer/HBoxContainer/A"]
-margin_left = 72.0
+margin_left = 78.0
 margin_top = 20.0
-margin_right = 153.0
+margin_right = 159.0
 margin_bottom = 60.0
 custom_fonts/font = SubResource( 11 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.729412 )
@@ -782,27 +807,28 @@ text = "PLAY"
 align = 1
 valign = 1
 
-[node name="B" type="HBoxContainer" parent="PanelHelp/MarginContainer/HBoxContainer"]
-margin_left = 203.0
-margin_right = 361.0
+[node name="B2" type="HBoxContainer" parent="PanelHelp/MarginContainer/HBoxContainer"]
+visible = false
+margin_left = 423.0
+margin_right = 563.0
 margin_bottom = 81.0
 custom_constants/separation = 6
 
-[node name="element_icon_help_panel" parent="PanelHelp/MarginContainer/HBoxContainer/B" instance=ExtResource( 4 )]
-margin_right = 66.0
+[node name="element_icon_help_panel" parent="PanelHelp/MarginContainer/HBoxContainer/B2" instance=ExtResource( 4 )]
+margin_right = 72.0
 margin_bottom = 81.0
-action = "ui_cancel"
+action = "ui_accept2"
 
-[node name="Label" type="Label" parent="PanelHelp/MarginContainer/HBoxContainer/B"]
-margin_left = 72.0
+[node name="Label" type="Label" parent="PanelHelp/MarginContainer/HBoxContainer/B2"]
+margin_left = 78.0
 margin_top = 20.0
-margin_right = 158.0
+margin_right = 140.0
 margin_bottom = 60.0
 custom_fonts/font = SubResource( 11 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.729412 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 2
-text = "BACK"
+text = "FAV"
 align = 1
 valign = 1
 
@@ -813,36 +839,9 @@ margin_bottom = 81.0
 custom_constants/separation = 50
 alignment = 2
 
-[node name="UD" type="HBoxContainer" parent="PanelHelp/MarginContainer/HBoxContainer2"]
-margin_left = 783.0
-margin_right = 1044.0
-margin_bottom = 81.0
-custom_constants/separation = 6
-
-[node name="Spr" type="TextureRect" parent="PanelHelp/MarginContainer/HBoxContainer2/UD"]
-margin_right = 65.0
-margin_bottom = 81.0
-rect_min_size = Vector2( 65, 0 )
-texture = ExtResource( 7 )
-expand = true
-stretch_mode = 6
-
-[node name="Label" type="Label" parent="PanelHelp/MarginContainer/HBoxContainer2/UD"]
-margin_left = 71.0
-margin_top = 20.0
-margin_right = 261.0
-margin_bottom = 60.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 0.729412 )
-custom_constants/shadow_offset_x = 1
-custom_constants/shadow_offset_y = 2
-text = "CHANGESYS"
-align = 1
-valign = 1
-
 [node name="LR" type="HBoxContainer" parent="PanelHelp/MarginContainer/HBoxContainer2"]
-margin_left = 1094.0
-margin_right = 1326.0
+margin_left = 783.0
+margin_right = 1015.0
 margin_bottom = 81.0
 custom_constants/separation = 6
 
@@ -867,6 +866,33 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 0.729412 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 2
 text = "NAVIGATE"
+align = 1
+valign = 1
+
+[node name="UD" type="HBoxContainer" parent="PanelHelp/MarginContainer/HBoxContainer2"]
+margin_left = 1065.0
+margin_right = 1326.0
+margin_bottom = 81.0
+custom_constants/separation = 6
+
+[node name="Spr" type="TextureRect" parent="PanelHelp/MarginContainer/HBoxContainer2/UD"]
+margin_right = 65.0
+margin_bottom = 81.0
+rect_min_size = Vector2( 65, 0 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="PanelHelp/MarginContainer/HBoxContainer2/UD"]
+margin_left = 71.0
+margin_top = 20.0
+margin_right = 261.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.729412 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 2
+text = "CHANGESYS"
 align = 1
 valign = 1
 
@@ -948,6 +974,8 @@ __meta__ = {
 one_shot = true
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="Notification" parent="." instance=ExtResource( 16 )]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="TimerToShowWallpaper" to="." method="_on_TimerToShowWallpaper_timeout"]
 [connection signal="timeout" from="TimerToStartEmu" to="." method="_on_TimerToStartEmu_timeout"]
