@@ -125,8 +125,8 @@ func _enter_tree():
 		
 		#crear una carpeta "media" dentro del pathrom
 		#es en donde se guardaran los covers
-		if !dir.dir_exists(sys_data[s]["pathrom"]+"\\media"):
-			dir.make_dir(sys_data[s]["pathrom"]+"\\media")
+		if !dir.dir_exists(sys_data[s]["pathrom"]+"/media"):
+			dir.make_dir(sys_data[s]["pathrom"]+"/media")
 		
 		#recorrer los archivos validos, o sea las roms
 		idx_file = 0
@@ -135,9 +135,9 @@ func _enter_tree():
 			#nombre de archivo (sin su extensión)
 			var basename = v_fi.get_basename()
 			#ruta del cover del juego
-			var path_cover = sys_data[s]["pathrom"]+"\\media\\"+basename+".jpg"
+			var path_cover = sys_data[s]["pathrom"]+"/media/"+basename+".jpg"
 			#y del wallpaper
-			var path_wallpaper = sys_data[s]["pathrom"]+"\\media\\"+basename+"_bg.jpg"
+			var path_wallpaper = sys_data[s]["pathrom"]+"/media/"+basename+"_bg.jpg"
 			
 			#si el archivo tiene asociado un .jpg con su mismo nombre
 			#este es el cover
@@ -157,7 +157,7 @@ func _enter_tree():
 			#nombre,textura cover, textura wallpaper, ruta archivo
 			#ruta cover, ruta de wallpaper, key del sistema
 			systems_data_filtered[idx_sys].append([
-				basename,cover_texture,wallpaper_texture,sys_data[s]["pathrom"]+"\\"+v_fi,
+				basename,cover_texture,wallpaper_texture,sys_data[s]["pathrom"]+"/"+v_fi,
 				cover_texture,
 				wallpaper_texture,
 				s
