@@ -30,8 +30,8 @@ var data_path = ""
 
 func _enter_tree():
 	
-	#use a "data" folder relative to the user data
-	data_path = "user://fes_data"
+	#comprobar si existe una carpeta "data" dentro de la misma carpeta del ejecutable
+	data_path = OS.get_executable_path().get_base_dir()+"/fes_data"
 	#y crearla en caso de que no exista
 	if !dir.dir_exists(data_path):
 		dir.make_dir(data_path)
