@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://tres/fonts/Ubuntu32_Normal.tres" type="DynamicFont" id=1]
+[ext_resource path="res://ui_elements/Button.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0196078, 0.0196078, 0.0196078, 0.607843 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.0196078, 0.0196078, 0.0196078, 0.607843 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.580392, 0.580392, 0.580392, 0.545098 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 2.0
+bg_color = Color( 0.172549, 0.172549, 0.172549, 0 )
+
+[node name="Button" type="Button"]
+margin_right = 109.0
+margin_bottom = 39.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = ExtResource( 1 )
+text = "Button"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

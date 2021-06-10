@@ -1,0 +1,345 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://tres/fonts/Ubuntu32_Normal.tres" type="DynamicFont" id=1]
+[ext_resource path="res://addons/FontAwesome5/FontAwesome.gd" type="Script" id=2]
+[ext_resource path="res://addons/FontAwesome5/fa-solid-900.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://ui_elements/BtnTitleWindow.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui_elements/TitleWindow.gd" type="Script" id=5]
+[ext_resource path="res://ui_elements/Button.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxLine" id=2]
+color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxLine" id=7]
+color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 36
+font_data = ExtResource( 3 )
+
+[node name="TitleWindow" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimerRefreshInfo" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="WindowBar" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+margin_bottom = 56.0
+rect_pivot_offset = Vector2( -560, -16 )
+custom_constants/separation = 16
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnArrowLeft" parent="WindowBar" instance=ExtResource( 4 )]
+margin_bottom = 56.0
+focus_mode = 0
+enabled_focus_mode = 0
+
+[node name="FontAwesome" parent="WindowBar/BtnArrowLeft" index="0"]
+custom_fonts/font = SubResource( 1 )
+text = ""
+icon_type = "solid"
+icon_name = "arrow-left"
+
+[node name="VSeparator" type="VSeparator" parent="WindowBar"]
+margin_left = 65.0
+margin_right = 69.0
+margin_bottom = 56.0
+custom_styles/separator = SubResource( 2 )
+
+[node name="LblTitle" type="Label" parent="WindowBar"]
+margin_left = 85.0
+margin_top = 9.0
+margin_right = 781.0
+margin_bottom = 46.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Window Title"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoDevice" type="HBoxContainer" parent="WindowBar"]
+margin_left = 797.0
+margin_right = 1252.0
+margin_bottom = 56.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+custom_constants/separation = 22
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Date" type="HBoxContainer" parent="WindowBar/InfoDevice"]
+margin_right = 116.0
+margin_bottom = 56.0
+grow_horizontal = 0
+custom_constants/separation = 7
+alignment = 2
+
+[node name="Icon" type="Label" parent="WindowBar/InfoDevice/Date"]
+margin_top = 12.0
+margin_right = 26.0
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 3 )
+text = ""
+align = 1
+valign = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": "battery-full
+battery-three-quarters
+battery-half
+battery-quarter
+battery-empty
+"
+}
+icon_size = 30
+icon_name = "calendar-alt"
+
+[node name="Lbl" type="Label" parent="WindowBar/InfoDevice/Date"]
+margin_left = 33.0
+margin_top = 9.0
+margin_right = 116.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 1 )
+text = "31/12"
+
+[node name="Hour" type="HBoxContainer" parent="WindowBar/InfoDevice"]
+margin_left = 138.0
+margin_right = 255.0
+margin_bottom = 56.0
+grow_horizontal = 0
+custom_constants/separation = 7
+alignment = 2
+
+[node name="Icon" type="Label" parent="WindowBar/InfoDevice/Hour"]
+margin_top = 12.0
+margin_right = 30.0
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 4 )
+text = ""
+align = 1
+valign = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": "battery-full
+battery-three-quarters
+battery-half
+battery-quarter
+battery-empty
+"
+}
+icon_size = 30
+icon_name = "clock"
+
+[node name="Lbl" type="Label" parent="WindowBar/InfoDevice/Hour"]
+margin_left = 37.0
+margin_top = 9.0
+margin_right = 117.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 1 )
+text = "24:00"
+
+[node name="Battery" type="HBoxContainer" parent="WindowBar/InfoDevice"]
+margin_left = 277.0
+margin_right = 429.0
+margin_bottom = 56.0
+grow_horizontal = 0
+custom_constants/separation = 7
+alignment = 2
+
+[node name="Icon2" type="Label" parent="WindowBar/InfoDevice/Battery"]
+margin_top = 12.0
+margin_right = 19.0
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 5 )
+text = ""
+align = 1
+valign = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": "battery-full
+battery-three-quarters
+battery-half
+battery-quarter
+battery-empty
+"
+}
+icon_size = 30
+icon_name = "bolt"
+
+[node name="Icon" type="Label" parent="WindowBar/InfoDevice/Battery"]
+margin_left = 26.0
+margin_top = 12.0
+margin_right = 64.0
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 6 )
+text = ""
+align = 1
+valign = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": "battery-full
+battery-three-quarters
+battery-half
+battery-quarter
+battery-empty
+"
+}
+icon_size = 30
+icon_name = "battery-full"
+
+[node name="Lbl" type="Label" parent="WindowBar/InfoDevice/Battery"]
+margin_left = 71.0
+margin_top = 9.0
+margin_right = 152.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 1 )
+text = "100%"
+
+[node name="VSeparator" type="VSeparator" parent="WindowBar/InfoDevice"]
+margin_left = 451.0
+margin_right = 455.0
+margin_bottom = 56.0
+custom_styles/separator = SubResource( 7 )
+
+[node name="HBxBtnWindow" type="HBoxContainer" parent="WindowBar"]
+margin_left = 1268.0
+margin_right = 1366.0
+margin_bottom = 56.0
+custom_constants/separation = 0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="BtnMinimize" parent="WindowBar/HBxBtnWindow" instance=ExtResource( 4 )]
+margin_bottom = 56.0
+focus_mode = 0
+enabled_focus_mode = 0
+
+[node name="BtnClose" parent="WindowBar/HBxBtnWindow" instance=ExtResource( 4 )]
+margin_left = 49.0
+margin_right = 98.0
+margin_bottom = 56.0
+focus_mode = 0
+enabled_focus_mode = 0
+
+[node name="FontAwesome" parent="WindowBar/HBxBtnWindow/BtnClose" index="0"]
+custom_fonts/font = SubResource( 8 )
+text = ""
+icon_type = "solid"
+icon_name = "times"
+
+[node name="ConfirmQuit" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 944, 272 )
+color = Color( 0.168627, 0.168627, 0.168627, 0.8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="ConfirmQuit"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -80.0
+margin_bottom = 88.0
+color = Color( 0, 0, 0, 0.360784 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBx" type="VBoxContainer" parent="ConfirmQuit"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -99.0
+margin_top = -20.0
+margin_right = 99.0
+margin_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/separation = 28
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ConfirmQuit/VBx"]
+margin_right = 270.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "SURE_EXIT"
+align = 1
+
+[node name="HBx" type="HBoxContainer" parent="ConfirmQuit/VBx"]
+margin_top = 65.0
+margin_right = 270.0
+margin_bottom = 104.0
+custom_constants/separation = 39
+alignment = 1
+
+[node name="BtnClose" parent="ConfirmQuit/VBx/HBx" instance=ExtResource( 6 )]
+margin_right = 105.0
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath("../BtnCancel")
+focus_neighbour_bottom = NodePath(".")
+text = "EXIT"
+
+[node name="BtnCancel" parent="ConfirmQuit/VBx/HBx" instance=ExtResource( 6 )]
+margin_left = 144.0
+margin_right = 270.0
+focus_neighbour_left = NodePath("../BtnClose")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+text = "CANCEL"
+
+[connection signal="timeout" from="TimerRefreshInfo" to="." method="_on_TimerRefreshInfo_timeout"]
+[connection signal="pressed" from="WindowBar/BtnArrowLeft" to="." method="_on_Btn_pressed" binds= [ "back" ]]
+[connection signal="pressed" from="WindowBar/HBxBtnWindow/BtnMinimize" to="." method="_on_Btn_pressed" binds= [ "minimize" ]]
+[connection signal="pressed" from="WindowBar/HBxBtnWindow/BtnClose" to="." method="_on_Btn_pressed" binds= [ "close" ]]
+[connection signal="pressed" from="ConfirmQuit/VBx/HBx/BtnClose" to="." method="_on_Btn_confirm_quit" binds= [ "quit" ]]
+[connection signal="pressed" from="ConfirmQuit/VBx/HBx/BtnCancel" to="." method="_on_Btn_confirm_quit" binds= [ "cancel" ]]
+
+[editable path="WindowBar/BtnArrowLeft"]
+[editable path="WindowBar/HBxBtnWindow/BtnClose"]

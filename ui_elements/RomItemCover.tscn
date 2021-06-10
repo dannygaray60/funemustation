@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://tres/fonts/Ubuntu32_Normal.tres" type="DynamicFont" id=1]
+[ext_resource path="res://ui_elements/RomItemCover.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0 )
+shadow_color = Color( 0, 0, 0, 0.611765 )
+shadow_size = 6
+
+[node name="RomItemCover" type="PanelContainer"]
+margin_right = 256.0
+margin_bottom = 343.0
+rect_min_size = Vector2( 256, 343 )
+focus_mode = 2
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="."]
+margin_right = 256.0
+margin_bottom = 343.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="Lbl" type="Label" parent="Margin"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 246.0
+margin_bottom = 333.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 1 )
+text = "Name of the file..."
+autowrap = true
+clip_text = true
+
+[node name="CoverBG" type="TextureRect" parent="."]
+self_modulate = Color( 0.309804, 0.309804, 0.309804, 1 )
+margin_right = 256.0
+margin_bottom = 343.0
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cover" type="TextureRect" parent="."]
+margin_right = 256.0
+margin_bottom = 343.0
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Darkness" type="ColorRect" parent="."]
+margin_right = 256.0
+margin_bottom = 343.0
+color = Color( 0, 0, 0, 0.5 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 128, 160 )
+scale = Vector2( 32, 23.7 )
+
+[connection signal="focus_entered" from="." to="." method="_on_RomItemCover_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_RomItemCover_focus_exited"]
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

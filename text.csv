@@ -1,7 +1,21 @@
 keys;en;es
+OPENCOLLECTION;Open Collection;Abrir Colección
+DONE;Done!;¡Hecho!
+GAMEDB;Game Database;Base de datos de juegos
+UPDATEDB;Update;Actualizar
+SETTINGS;Settings;Ajustes
+CONFGMPDICONS;Gamepad Icons;Íconos del Gamepad
+CONFREMAP;Keys Binding;Remapeo Controles
+GMPDKEYBRD;Gamepad / Keyboard;Gamepad / Teclado
+FULLSCREEN;Fullscreen;Pantalla Completa
+VIDEO;Video;Video
 WELCOME_USER;Welcome %s!;¡Bienvenido %s!
+LOADINGCONTENT;Loading content...;Cargando contenido...
 PLEASE_WAIT;Please wait...;Por favor espere...
 SYS_NOT_CONF;Systems Not Configured;Sistemas no configurados
+EMPTYLIST;Empty list;Lista vacía
+EXIT;Exit;Salir
+SELECT;Select;Seleccionar
 ACCEPT;Accept;Aceptar
 CANCEL;Cancel;Cancelar
 CLOSE;Close;Cerrar
@@ -9,7 +23,9 @@ PLAY;Play;Jugar
 BACK;Back;Retroceder
 CHANGESYS;Change System;Cambiar Sistema
 NAVIGATE;Navigate;Navegar
+ADDFAV;Add Favorite;Añadir Favorito
 NUM_GAMES;%d games;%d juegos
+FAVADDED;Favorite Added;Añadido a favoritos
 SETTINGS;Settings;Ajustes
 BACKHOME;Back to home;Regresar a inicio
 BACKLIST;Back to list;Regresar a la lista
@@ -45,3 +61,21 @@ ACCEPT2;Secondary Action;Acción Secundaria
 FAV;+ Favorite;+ Favorito
 ADDED_FAV;added to favorites;agregado a favoritos
 ALREADY_ADDED_FAV;Already added to favorites;Ya ha sido agregado a favoritos
+FAVREMOVED;Removed from Favorites;Retirado de favoritos
+FAVREMOVE;Remove from Favorites;Quitar de favoritos
+BGDARKNESS;Background Darkness;Oscuridad de fondo
+BACKTOMENU;Back to Main Menu;Volver al menú principal
+PRESSCOMBOEXIT;Press <combo> action to return;Presiona <combo> para regresar
+CREDITS;Credits;Créditos
+INTERESTLNKS;Interest Links;Links de interés
+FAVORITES;Favorites;Favoritos
+CHANGEORDER;Change Order;Cambiar Orden
+BUYLAUNCHER;Buy Launcher;Comprar Launcher
+DONATE;Donate;Donar
+HELP;Help;Ayuda
+SAVE;Save;Guardar
+RESET;Reset;Reiniciar
+DELETE;Delete;Eliminar
+PREV;Previous;Anterior
+NEXT;Next;Siguiente
+BUYMSG;Thanks for use FunEmuStation Launcher.\n\nIf you don't want see this message consider buying this software on itch.io. If you can't pay it, you can compile from source code for free;Gracias por usar FunEmuStation Launcher.\n\nSi quieres evitar volver a ver este mensaje, considera comprar este programa en itch.io. Si no puedes pagarlo puedes compilar este launcher gratuitamente desde el código fuente.

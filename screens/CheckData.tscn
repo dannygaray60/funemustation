@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui_elements/Background.tscn" type="PackedScene" id=1]
+[ext_resource path="res://screens/CheckData.gd" type="Script" id=2]
+[ext_resource path="res://tres/fonts/Ubuntu24_Normal.tres" type="DynamicFont" id=3]
+
+[node name="CheckData" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Black" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="Margin" type="MarginContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBx" type="VBoxContainer" parent="Margin"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1356.0
+margin_bottom = 758.0
+alignment = 2
+
+[node name="Lbl" type="Label" parent="Margin/VBx"]
+margin_top = 720.0
+margin_right = 1346.0
+margin_bottom = 748.0
+custom_fonts/font = ExtResource( 3 )
+valign = 2
+autowrap = true
+
+[node name="Tween" type="Tween" parent="."]

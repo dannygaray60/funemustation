@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://ui_elements/VBxHSlider.gd" type="Script" id=1]
+[ext_resource path="res://tres/fonts/Ubuntu24_Normal.tres" type="DynamicFont" id=2]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/grabber.png-a422b0f9e3e21d0b4b22cf32d0580743.stex"
+
+[sub_resource type="StreamTexture" id=2]
+flags = 4
+load_path = "res://.import/grabber.png-a422b0f9e3e21d0b4b22cf32d0580743.stex"
+
+[sub_resource type="StreamTexture" id=3]
+flags = 4
+load_path = "res://.import/grabber.png-a422b0f9e3e21d0b4b22cf32d0580743.stex"
+
+[sub_resource type="StyleBoxLine" id=4]
+color = Color( 1, 1, 1, 1 )
+thickness = 2
+
+[sub_resource type="StyleBoxLine" id=5]
+color = Color( 1, 1, 1, 1 )
+thickness = 2
+
+[sub_resource type="StyleBoxLine" id=6]
+color = Color( 1, 1, 1, 1 )
+thickness = 2
+
+[node name="VBxHSlider" type="VBoxContainer"]
+margin_right = 120.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -40, -32 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 132.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 2 )
+text = "TITLESLIDER"
+align = 1
+
+[node name="HSlider" type="HSlider" parent="."]
+margin_top = 32.0
+margin_right = 132.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_icons/grabber_disabled = SubResource( 1 )
+custom_icons/grabber_highlight = SubResource( 2 )
+custom_icons/grabber = SubResource( 3 )
+custom_styles/slider = SubResource( 4 )
+custom_styles/grabber_area_highlight = SubResource( 5 )
+custom_styles/grabber_area = SubResource( 6 )
+max_value = 1.0
+step = 0.05
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]

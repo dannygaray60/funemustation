@@ -1,0 +1,149 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://tres/fonts/Ubuntu32_Normal.tres" type="DynamicFont" id=1]
+[ext_resource path="res://ui_elements/TitleWindow.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui_elements/Background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://screens/About.gd" type="Script" id=4]
+[ext_resource path="res://ui_elements/Button.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/FontAwesome5/fa-solid-900.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 6 )
+
+[node name="About" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" parent="." instance=ExtResource( 3 )]
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -612.0
+margin_top = -309.0
+margin_right = 612.0
+margin_bottom = 288.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 1 )
+text = "FunEmuStation Launcher v2.0 (FES Launcher).
+-------------------------------
+Developer: Danny Garay (dannygaray60@gmail.com)
+
+Main Icon and background lines: Freepik
+User Interface Design: Danny Garay
+Other Icons: FontAwesome (with Matrixant's plugin)
+Gamepad Icons: Arks @Scissormarks
+Background Music: mc2method
+Sound Effects: tonedock.com
+
+This launcher was made with Godot Engine 3"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -605.0
+margin_top = -70.0
+margin_right = 605.0
+grow_horizontal = 2
+grow_vertical = 0
+custom_constants/separation = 36
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" parent="HBoxContainer" instance=ExtResource( 5 )]
+margin_right = 208.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+text = "DONATE"
+
+[node name="Button2" parent="HBoxContainer" instance=ExtResource( 5 )]
+margin_left = 244.0
+margin_right = 475.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+text = "BUYLAUNCHER"
+
+[node name="Button3" parent="HBoxContainer" instance=ExtResource( 5 )]
+margin_left = 511.0
+margin_right = 720.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+text = "Facebook"
+
+[node name="Button4" parent="HBoxContainer" instance=ExtResource( 5 )]
+margin_left = 756.0
+margin_right = 965.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+text = "Github"
+
+[node name="Button5" parent="HBoxContainer" instance=ExtResource( 5 )]
+margin_left = 1001.0
+margin_right = 1210.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+text = "Discord"
+
+[node name="TitleWindow" parent="." instance=ExtResource( 2 )]
+title = "CREDITS"
+
+[node name="BtnArrowLeft" parent="TitleWindow/WindowBar" index="0"]
+focus_mode = 2
+
+[node name="Icon" parent="TitleWindow/WindowBar/InfoDevice/Date" index="0"]
+custom_fonts/font = SubResource( 1 )
+
+[node name="Icon" parent="TitleWindow/WindowBar/InfoDevice/Hour" index="0"]
+custom_fonts/font = SubResource( 2 )
+
+[node name="Icon2" parent="TitleWindow/WindowBar/InfoDevice/Battery" index="0"]
+custom_fonts/font = SubResource( 3 )
+
+[node name="Icon" parent="TitleWindow/WindowBar/InfoDevice/Battery" index="1"]
+custom_fonts/font = SubResource( 4 )
+
+[connection signal="focus_exited" from="HBoxContainer/Button" to="." method="_on_Button_focus_exited"]
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_GoURL" binds= [ "https://ko-fi.com/dannygaray60" ]]
+[connection signal="focus_exited" from="HBoxContainer/Button2" to="." method="_on_Button_focus_exited"]
+[connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_GoURL" binds= [ "https://dannygaray60.itch.io/" ]]
+[connection signal="focus_exited" from="HBoxContainer/Button3" to="." method="_on_Button_focus_exited"]
+[connection signal="pressed" from="HBoxContainer/Button3" to="." method="_on_GoURL" binds= [ "https://www.facebook.com/dannygarayrock" ]]
+[connection signal="focus_exited" from="HBoxContainer/Button4" to="." method="_on_Button_focus_exited"]
+[connection signal="pressed" from="HBoxContainer/Button4" to="." method="_on_GoURL" binds= [ "https://github.com/dannygaray60/funemustation" ]]
+[connection signal="focus_exited" from="HBoxContainer/Button5" to="." method="_on_Button_focus_exited"]
+[connection signal="pressed" from="HBoxContainer/Button5" to="." method="_on_GoURL" binds= [ "https://discord.gg/jkCVcf2vwH" ]]
+[connection signal="btn_back_pressed" from="TitleWindow" to="." method="_on_TitleWindow_btn_back_pressed"]
+
+[editable path="TitleWindow"]
+[editable path="TitleWindow/WindowBar/BtnArrowLeft"]
+[editable path="TitleWindow/WindowBar/HBxBtnWindow/BtnClose"]

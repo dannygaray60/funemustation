@@ -8,16 +8,11 @@
 
 config_version=4
 
-_global_script_classes=[  ]
-_global_script_class_icons={
-
-}
-
 [application]
 
 config/name="FunEmuStation Launcher"
 config/description="A simple but elegant launcher of emulators and pc games"
-run/main_scene="res://MainScr.tscn"
+run/main_scene="res://screens/CheckData.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="FunEmuStation Launcher"
 run/low_processor_mode=true
@@ -25,14 +20,14 @@ boot_splash/image="res://boot_bg.png"
 boot_splash/bg_color=Color( 0.0352941, 0.0431373, 0.243137, 1 )
 config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
+config/quit_on_go_back=false
 
 [autoload]
 
-Functions="*res://functions.gd"
-Global="*res://global.gd"
-Config="*res://config.gd"
-SceneChanger="*res://SceneChanger.tscn"
-Audio="*res://Audio.tscn"
+SceneChanger="*res://autoload/SceneChanger.tscn"
+Vars="*res://scripts/Vars.gd"
+Config="*res://scripts/Config.gd"
+Audio="*res://autoload/Audio.tscn"
 
 [display]
 
@@ -45,6 +40,11 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PoolStringArray( "FontAwesome5" )
+
+[global]
+
+quit=false
+back=false
 
 [input]
 
@@ -100,16 +100,8 @@ ui_end={
 "deadzone": 0.5,
 "events": [  ]
 }
-ui_accept2={
-"deadzone": 0.5,
-"events": [  ]
-}
-ui_window_minimize={
-"deadzone": 0.5,
-"events": [  ]
-}
-ui_window_close={
-"deadzone": 0.5,
+ui_alternative_action={
+"deadzone": 0.51,
 "events": [  ]
 }
 combo1={
@@ -128,6 +120,10 @@ combo4={
 "deadzone": 0.5,
 "events": [  ]
 }
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [locale]
 

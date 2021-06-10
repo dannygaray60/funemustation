@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Theme.tres" type="Theme" id=1]
+[ext_resource path="res://screens/ExecutedContent.gd" type="Script" id=2]
+[ext_resource path="res://ui_elements/Button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tres/fonts/Ubuntu24_Normal.tres" type="DynamicFont" id=4]
+
+[node name="ExecutedContent" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.266667, 0.266667, 0.266667, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ROMBG" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Darkness" type="ColorRect" parent="ROMBG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -165.5
+margin_right = 100.0
+margin_bottom = 165.5
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/separation = 110
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 72.0
+margin_right = 200.0
+margin_bottom = 109.0
+text = "FILE_OPENED"
+align = 1
+valign = 1
+
+[node name="BtnGoMenu" parent="VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 219.0
+margin_right = 200.0
+margin_bottom = 258.0
+text = "BACKLIST"
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -135.5
+margin_top = -82.0
+margin_right = 135.5
+margin_bottom = -45.0
+grow_horizontal = 2
+custom_fonts/font = ExtResource( 4 )
+text = "PRESSCOMBOEXIT"
+align = 1
+
+[connection signal="pressed" from="VBoxContainer/BtnGoMenu" to="." method="_on_BtnGoMenu_pressed"]

@@ -1,0 +1,487 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://ui_elements/Background.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui_elements/TitleWindow.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tres/fonts/Ubuntu32_Normal.tres" type="DynamicFont" id=3]
+[ext_resource path="res://ui_elements/Button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui_elements/CheckButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://tres/fonts/Ubuntu24_Normal.tres" type="DynamicFont" id=6]
+[ext_resource path="res://ui_elements/Panel.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ui_elements/VBxHSlider.tscn" type="PackedScene" id=8]
+[ext_resource path="res://ui_elements/LineEdit.tscn" type="PackedScene" id=9]
+[ext_resource path="res://screens/OptionsMain.gd" type="Script" id=10]
+
+[sub_resource type="StyleBoxLine" id=1]
+color = Color( 1, 1, 1, 1 )
+thickness = 2
+
+[sub_resource type="ButtonGroup" id=2]
+
+[node name="OptionsMain" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" parent="." instance=ExtResource( 1 )]
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 79.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="Margin"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1346.0
+margin_bottom = 669.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelVideo" parent="Margin/Grid" instance=ExtResource( 7 )]
+margin_right = 316.0
+margin_bottom = 186.0
+size_flags_horizontal = 1
+
+[node name="VBx" type="VBoxContainer" parent="Margin/Grid/PanelVideo"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 306.0
+margin_bottom = 176.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="Margin/Grid/PanelVideo/VBx"]
+margin_right = 296.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 3 )
+text = "VIDEO"
+
+[node name="HSeparator" type="HSeparator" parent="Margin/Grid/PanelVideo/VBx"]
+margin_top = 47.0
+margin_right = 296.0
+margin_bottom = 67.0
+custom_styles/separator = SubResource( 1 )
+custom_constants/separation = 20
+
+[node name="ChkBtnFullscreen" parent="Margin/Grid/PanelVideo/VBx" instance=ExtResource( 5 )]
+margin_top = 77.0
+margin_right = 296.0
+margin_bottom = 117.0
+text = "FULLSCREEN"
+
+[node name="LblRestartToApply" type="Label" parent="Margin/Grid/PanelVideo/VBx"]
+visible = false
+margin_top = 127.0
+margin_right = 288.0
+margin_bottom = 155.0
+custom_fonts/font = ExtResource( 6 )
+text = "NEEDRESTARTAPPLYCONF"
+
+[node name="HBxTheme" type="HBoxContainer" parent="Margin/Grid/PanelVideo/VBx"]
+margin_top = 127.0
+margin_right = 296.0
+margin_bottom = 166.0
+alignment = 1
+
+[node name="BtnPrev" parent="Margin/Grid/PanelVideo/VBx/HBxTheme" instance=ExtResource( 4 )]
+margin_right = 28.0
+text = "<"
+
+[node name="LblName" type="Label" parent="Margin/Grid/PanelVideo/VBx/HBxTheme"]
+margin_left = 32.0
+margin_top = 5.0
+margin_right = 264.0
+margin_bottom = 33.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 6 )
+text = "Theme Name"
+align = 1
+
+[node name="BtnNext" parent="Margin/Grid/PanelVideo/VBx/HBxTheme" instance=ExtResource( 4 )]
+margin_left = 268.0
+margin_right = 296.0
+text = ">"
+
+[node name="PanelAudio" parent="Margin/Grid" instance=ExtResource( 7 )]
+margin_left = 336.0
+margin_right = 652.0
+margin_bottom = 209.0
+rect_min_size = Vector2( 240, 0 )
+size_flags_horizontal = 1
+
+[node name="VBx" type="VBoxContainer" parent="Margin/Grid/PanelAudio"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 306.0
+margin_bottom = 199.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="Margin/Grid/PanelAudio/VBx"]
+margin_right = 296.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 3 )
+text = "SOUND"
+
+[node name="HSeparator" type="HSeparator" parent="Margin/Grid/PanelAudio/VBx"]
+margin_top = 47.0
+margin_right = 296.0
+margin_bottom = 67.0
+custom_styles/separator = SubResource( 1 )
+custom_constants/separation = 20
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VBxHSliderSFX" parent="Margin/Grid/PanelAudio/VBx" instance=ExtResource( 8 )]
+margin_top = 77.0
+margin_right = 296.0
+margin_bottom = 128.0
+title = "EFFECTS"
+
+[node name="VBxHSliderBGM" parent="Margin/Grid/PanelAudio/VBx" instance=ExtResource( 8 )]
+margin_top = 138.0
+margin_right = 296.0
+margin_bottom = 189.0
+title = "MUSIC"
+
+[node name="PanelKeysConf" parent="Margin/Grid" instance=ExtResource( 7 )]
+margin_left = 672.0
+margin_right = 988.0
+margin_bottom = 185.0
+size_flags_horizontal = 1
+
+[node name="VBx" type="VBoxContainer" parent="Margin/Grid/PanelKeysConf"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 306.0
+margin_bottom = 175.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="Margin/Grid/PanelKeysConf/VBx"]
+margin_right = 296.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 3 )
+text = "GMPDKEYBRD"
+
+[node name="HSeparator" type="HSeparator" parent="Margin/Grid/PanelKeysConf/VBx"]
+margin_top = 47.0
+margin_right = 296.0
+margin_bottom = 67.0
+custom_styles/separator = SubResource( 1 )
+custom_constants/separation = 20
+
+[node name="BtnGmpdIcons" parent="Margin/Grid/PanelKeysConf/VBx" instance=ExtResource( 4 )]
+margin_top = 77.0
+margin_right = 296.0
+margin_bottom = 116.0
+text = "CONFGMPDICONS"
+
+[node name="BtnBindings" parent="Margin/Grid/PanelKeysConf/VBx" instance=ExtResource( 4 )]
+margin_top = 126.0
+margin_right = 296.0
+margin_bottom = 165.0
+text = "CONFREMAP"
+
+[node name="PanelGameDB" parent="Margin/Grid" instance=ExtResource( 7 )]
+margin_left = 1008.0
+margin_right = 1324.0
+margin_bottom = 136.0
+size_flags_horizontal = 3
+
+[node name="VBx" type="VBoxContainer" parent="Margin/Grid/PanelGameDB"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 306.0
+margin_bottom = 126.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="Margin/Grid/PanelGameDB/VBx"]
+margin_right = 296.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 3 )
+text = "GAMEDB"
+
+[node name="HSeparator" type="HSeparator" parent="Margin/Grid/PanelGameDB/VBx"]
+margin_top = 47.0
+margin_right = 296.0
+margin_bottom = 67.0
+custom_styles/separator = SubResource( 1 )
+custom_constants/separation = 20
+
+[node name="LblWaitMsg" type="Label" parent="Margin/Grid/PanelGameDB/VBx"]
+visible = false
+margin_top = 77.0
+margin_right = 243.0
+margin_bottom = 114.0
+custom_fonts/font = ExtResource( 3 )
+text = "PLEASE_WAIT"
+
+[node name="BtnUpdateDB" parent="Margin/Grid/PanelGameDB/VBx" instance=ExtResource( 4 )]
+margin_top = 77.0
+margin_right = 296.0
+margin_bottom = 116.0
+text = "UPDATEDB"
+
+[node name="PanelLang" parent="Margin/Grid" instance=ExtResource( 7 )]
+margin_top = 229.0
+margin_right = 316.0
+margin_bottom = 416.0
+size_flags_horizontal = 3
+
+[node name="VBx" type="VBoxContainer" parent="Margin/Grid/PanelLang"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 306.0
+margin_bottom = 177.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="Margin/Grid/PanelLang/VBx"]
+margin_right = 296.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 3 )
+text = "LANG"
+
+[node name="HSeparator" type="HSeparator" parent="Margin/Grid/PanelLang/VBx"]
+margin_top = 47.0
+margin_right = 296.0
+margin_bottom = 67.0
+custom_styles/separator = SubResource( 1 )
+custom_constants/separation = 20
+
+[node name="ChkBtnEng" parent="Margin/Grid/PanelLang/VBx" instance=ExtResource( 5 )]
+margin_top = 77.0
+margin_right = 296.0
+margin_bottom = 117.0
+group = SubResource( 2 )
+text = "English"
+
+[node name="ChkBtnEsp" parent="Margin/Grid/PanelLang/VBx" instance=ExtResource( 5 )]
+margin_top = 127.0
+margin_right = 296.0
+margin_bottom = 167.0
+group = SubResource( 2 )
+text = "Español"
+
+[node name="PanelBGAlpha" parent="Margin/Grid" instance=ExtResource( 7 )]
+margin_left = 336.0
+margin_top = 229.0
+margin_right = 652.0
+margin_bottom = 393.0
+size_flags_horizontal = 3
+
+[node name="VBx" type="VBoxContainer" parent="Margin/Grid/PanelBGAlpha"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 306.0
+margin_bottom = 154.0
+custom_constants/separation = 18
+
+[node name="Label" type="Label" parent="Margin/Grid/PanelBGAlpha/VBx"]
+margin_right = 296.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 3 )
+text = "BGDARKNESS"
+
+[node name="HSeparator" type="HSeparator" parent="Margin/Grid/PanelBGAlpha/VBx"]
+margin_top = 55.0
+margin_right = 296.0
+margin_bottom = 75.0
+custom_styles/separator = SubResource( 1 )
+custom_constants/separation = 20
+
+[node name="SliderBGAlpha" parent="Margin/Grid/PanelBGAlpha/VBx" instance=ExtResource( 8 )]
+margin_top = 93.0
+margin_right = 296.0
+margin_bottom = 144.0
+
+[node name="Label" parent="Margin/Grid/PanelBGAlpha/VBx/SliderBGAlpha" index="0"]
+margin_right = 296.0
+text = "fes_data/wallpaper.jpg"
+
+[node name="HSlider" parent="Margin/Grid/PanelBGAlpha/VBx/SliderBGAlpha" index="1"]
+margin_right = 296.0
+max_value = 0.9
+
+[node name="PanelNickname" parent="Margin/Grid" instance=ExtResource( 7 )]
+margin_left = 672.0
+margin_top = 229.0
+margin_right = 988.0
+margin_bottom = 374.0
+size_flags_horizontal = 3
+
+[node name="VBx" type="VBoxContainer" parent="Margin/Grid/PanelNickname"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 306.0
+margin_bottom = 135.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="Margin/Grid/PanelNickname/VBx"]
+margin_right = 296.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 3 )
+text = "Nickname"
+
+[node name="HSeparator" type="HSeparator" parent="Margin/Grid/PanelNickname/VBx"]
+margin_top = 47.0
+margin_right = 296.0
+margin_bottom = 67.0
+custom_styles/separator = SubResource( 1 )
+custom_constants/separation = 20
+
+[node name="LineEdit" parent="Margin/Grid/PanelNickname/VBx" instance=ExtResource( 9 )]
+margin_top = 77.0
+margin_right = 296.0
+margin_bottom = 125.0
+max_length = 15
+
+[node name="PanelSystems" parent="Margin/Grid" instance=ExtResource( 7 )]
+margin_left = 1008.0
+margin_top = 229.0
+margin_right = 1324.0
+margin_bottom = 463.0
+size_flags_horizontal = 1
+
+[node name="VBx" type="VBoxContainer" parent="Margin/Grid/PanelSystems"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 306.0
+margin_bottom = 224.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="Margin/Grid/PanelSystems/VBx"]
+margin_right = 296.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 3 )
+text = "Emulation Systems"
+
+[node name="HSeparator" type="HSeparator" parent="Margin/Grid/PanelSystems/VBx"]
+margin_top = 47.0
+margin_right = 296.0
+margin_bottom = 67.0
+custom_styles/separator = SubResource( 1 )
+custom_constants/separation = 20
+
+[node name="BtnAddSys" parent="Margin/Grid/PanelSystems/VBx" instance=ExtResource( 4 )]
+margin_top = 77.0
+margin_right = 296.0
+margin_bottom = 116.0
+text = "Add new System"
+
+[node name="BtnEditSys" parent="Margin/Grid/PanelSystems/VBx" instance=ExtResource( 4 )]
+margin_top = 126.0
+margin_right = 296.0
+margin_bottom = 165.0
+text = "Edit Systems"
+
+[node name="BtnOpenIni" parent="Margin/Grid/PanelSystems/VBx" instance=ExtResource( 4 )]
+margin_top = 175.0
+margin_right = 296.0
+margin_bottom = 214.0
+text = "Open systems.ini"
+
+[node name="PanelData" parent="Margin/Grid" instance=ExtResource( 7 )]
+margin_top = 483.0
+margin_right = 316.0
+margin_bottom = 619.0
+size_flags_horizontal = 1
+
+[node name="VBx" type="VBoxContainer" parent="Margin/Grid/PanelData"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 306.0
+margin_bottom = 126.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="Margin/Grid/PanelData/VBx"]
+margin_right = 296.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 3 )
+text = "Fes Data"
+
+[node name="HSeparator" type="HSeparator" parent="Margin/Grid/PanelData/VBx"]
+margin_top = 47.0
+margin_right = 296.0
+margin_bottom = 67.0
+custom_styles/separator = SubResource( 1 )
+custom_constants/separation = 20
+
+[node name="BtnOpenData" parent="Margin/Grid/PanelData/VBx" instance=ExtResource( 4 )]
+margin_top = 77.0
+margin_right = 296.0
+margin_bottom = 116.0
+text = "Open Data Folder"
+
+[node name="PanelOrderFav" parent="Margin/Grid" instance=ExtResource( 7 )]
+margin_left = 336.0
+margin_top = 483.0
+margin_right = 652.0
+margin_bottom = 619.0
+size_flags_horizontal = 1
+
+[node name="VBx" type="VBoxContainer" parent="Margin/Grid/PanelOrderFav"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 306.0
+margin_bottom = 126.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="Margin/Grid/PanelOrderFav/VBx"]
+margin_right = 296.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 3 )
+text = "FAVORITES"
+
+[node name="HSeparator" type="HSeparator" parent="Margin/Grid/PanelOrderFav/VBx"]
+margin_top = 47.0
+margin_right = 296.0
+margin_bottom = 67.0
+custom_styles/separator = SubResource( 1 )
+custom_constants/separation = 20
+
+[node name="BtnFavChangeOrder" parent="Margin/Grid/PanelOrderFav/VBx" instance=ExtResource( 4 )]
+margin_top = 77.0
+margin_right = 296.0
+margin_bottom = 116.0
+text = "CHANGEORDER"
+
+[node name="TitleWindow" parent="." instance=ExtResource( 2 )]
+title = "SETTINGS"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="toggled" from="Margin/Grid/PanelVideo/VBx/ChkBtnFullscreen" to="." method="_on_ChkBtnFullscreen_toggled"]
+[connection signal="pressed" from="Margin/Grid/PanelVideo/VBx/HBxTheme/BtnPrev" to="." method="_on_BtnChangeTheme_pressed" binds= [ "prev" ]]
+[connection signal="pressed" from="Margin/Grid/PanelVideo/VBx/HBxTheme/BtnNext" to="." method="_on_BtnChangeTheme_pressed" binds= [ "next" ]]
+[connection signal="value_changed" from="Margin/Grid/PanelAudio/VBx/VBxHSliderSFX" to="." method="_on_SoundSlider_value_changed" binds= [ "sfx" ]]
+[connection signal="value_changed" from="Margin/Grid/PanelAudio/VBx/VBxHSliderBGM" to="." method="_on_SoundSlider_value_changed" binds= [ "bgm" ]]
+[connection signal="pressed" from="Margin/Grid/PanelKeysConf/VBx/BtnGmpdIcons" to="." method="_on_BtnGmpdIcons_pressed"]
+[connection signal="pressed" from="Margin/Grid/PanelKeysConf/VBx/BtnBindings" to="." method="_on_BtnBindings_pressed"]
+[connection signal="pressed" from="Margin/Grid/PanelGameDB/VBx/BtnUpdateDB" to="." method="_on_BtnUpdateDB_pressed"]
+[connection signal="pressed" from="Margin/Grid/PanelLang/VBx/ChkBtnEng" to="." method="_onChangeLang" binds= [ "en", true ]]
+[connection signal="pressed" from="Margin/Grid/PanelLang/VBx/ChkBtnEsp" to="." method="_onChangeLang" binds= [ "es", true ]]
+[connection signal="value_changed" from="Margin/Grid/PanelBGAlpha/VBx/SliderBGAlpha" to="." method="_on_SliderBGAlpha_value_changed"]
+[connection signal="pressed" from="Margin/Grid/PanelSystems/VBx/BtnAddSys" to="." method="_on_BtnAddSys_pressed"]
+[connection signal="pressed" from="Margin/Grid/PanelSystems/VBx/BtnEditSys" to="." method="_on_BtnEditSys_pressed"]
+[connection signal="pressed" from="Margin/Grid/PanelSystems/VBx/BtnOpenIni" to="." method="_on_BtnOpenIni_pressed"]
+[connection signal="pressed" from="Margin/Grid/PanelData/VBx/BtnOpenData" to="." method="_on_BtnOpenData_pressed"]
+[connection signal="pressed" from="Margin/Grid/PanelOrderFav/VBx/BtnFavChangeOrder" to="." method="_on_BtnFavChangeOrder_pressed"]
+[connection signal="btn_back_pressed" from="TitleWindow" to="." method="_on_TitleWindow_btn_back_pressed"]
+
+[editable path="Margin/Grid/PanelVideo/VBx/ChkBtnFullscreen"]
+[editable path="Margin/Grid/PanelBGAlpha/VBx/SliderBGAlpha"]

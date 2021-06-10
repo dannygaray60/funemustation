@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://screens/ReorderFavoritesRoms.gd" type="Script" id=1]
+[ext_resource path="res://ui_elements/TitleWindow.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui_elements/Background.tscn" type="PackedScene" id=3]
+
+[node name="ReorderFavoritesRoms" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" parent="." instance=ExtResource( 3 )]
+
+[node name="Scroll" type="ScrollContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -609.5
+margin_top = -308.0
+margin_right = 609.5
+margin_bottom = 308.0
+follow_focus = true
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Vbx" type="VBoxContainer" parent="Scroll"]
+margin_right = 1219.0
+margin_bottom = 616.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 43
+alignment = 1
+
+[node name="TitleWindow" parent="." instance=ExtResource( 2 )]
+title = "CHANGEORDER"
+
+[connection signal="btn_back_pressed" from="TitleWindow" to="." method="_on_TitleWindow_btn_back_pressed"]

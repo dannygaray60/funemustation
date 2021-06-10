@@ -1,0 +1,325 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://ui_elements/TitleWindow.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui_elements/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tres/fonts/Ubuntu32_Normal.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/game-controller.png" type="Texture" id=4]
+[ext_resource path="res://ui_elements/ButtonMainMenu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui_elements/ScrollContainer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/FontAwesome5/fa-solid-900.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://screens/MainMenu.gd" type="Script" id=8]
+[ext_resource path="res://tres/fonts/Ubuntu24_Normal.tres" type="DynamicFont" id=9]
+[ext_resource path="res://ui_elements/BtnIconHelp.tscn" type="PackedScene" id=10]
+[ext_resource path="res://ui_elements/Panel.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/dpad_lr.png" type="Texture" id=12]
+[ext_resource path="res://tres/PanelHelpIcons.tres" type="StyleBox" id=13]
+[ext_resource path="res://ui_elements/Notification.tscn" type="PackedScene" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+size = 128
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 128
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 128
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 128
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 128
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 30
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 30
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 30
+font_data = ExtResource( 7 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -2168, -328 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="Logo" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -165.0
+margin_top = -302.5
+margin_right = 165.0
+margin_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 165, 170.5 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Logo"]
+margin_right = 330.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 100, 300 )
+rect_pivot_offset = Vector2( 165, 150 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Logo"]
+margin_top = 304.0
+margin_right = 330.0
+margin_bottom = 341.0
+custom_fonts/font = ExtResource( 3 )
+text = "FES Launcher 2.0"
+align = 1
+valign = 1
+
+[node name="ScrollContainer" parent="." instance=ExtResource( 6 )]
+margin_top = 376.0
+card_scale = 0.7
+card_current_scale = 1.0
+
+[node name="CenterContainer" parent="ScrollContainer" index="0"]
+margin_right = 5544.0
+margin_bottom = 380.0
+
+[node name="MarginContainer" parent="ScrollContainer/CenterContainer" index="0"]
+margin_top = 58.0
+margin_right = 5544.0
+margin_bottom = 322.0
+custom_constants/margin_left = 1700
+
+[node name="HBoxContainer" parent="ScrollContainer/CenterContainer/MarginContainer" index="0"]
+margin_left = 1700.0
+margin_right = 3844.0
+margin_bottom = 264.0
+
+[node name="Button" parent="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer" index="0" instance=ExtResource( 5 )]
+text = "OPENCOLLECTION"
+
+[node name="FontAwesome" parent="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/Button/VBx" index="0"]
+custom_fonts/font = SubResource( 1 )
+text = ""
+icon_name = "play"
+
+[node name="Button2" parent="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer" index="1" instance=ExtResource( 5 )]
+margin_left = 376.0
+margin_right = 640.0
+text = "FAVORITES"
+
+[node name="Button8" parent="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer" index="2" instance=ExtResource( 5 )]
+margin_left = 752.0
+margin_right = 1016.0
+text = "RANDOM_GAME"
+
+[node name="FontAwesome" parent="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/Button8/VBx" index="0"]
+custom_fonts/font = SubResource( 2 )
+text = ""
+icon_name = "question"
+
+[node name="Button4" parent="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer" index="3" instance=ExtResource( 5 )]
+margin_left = 1128.0
+margin_right = 1392.0
+text = "INTERESTLNKS"
+
+[node name="FontAwesome" parent="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/Button4/VBx" index="0"]
+custom_fonts/font = SubResource( 3 )
+text = ""
+icon_name = "link"
+
+[node name="Button5" parent="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer" index="4" instance=ExtResource( 5 )]
+margin_left = 1504.0
+margin_right = 1768.0
+text = "CREDITS"
+
+[node name="FontAwesome" parent="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/Button5/VBx" index="0"]
+custom_fonts/font = SubResource( 4 )
+text = ""
+icon_name = "heart"
+
+[node name="Button6" parent="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer" index="5" instance=ExtResource( 5 )]
+margin_left = 1880.0
+margin_right = 2144.0
+text = "Exit"
+
+[node name="FontAwesome" parent="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/Button6/VBx" index="0"]
+custom_fonts/font = SubResource( 5 )
+text = ""
+icon_name = "times-circle"
+
+[node name="PanelHelp" parent="." instance=ExtResource( 11 )]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -70.0
+margin_right = 0.0
+margin_bottom = 0.0
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Hbx" type="HBoxContainer" parent="PanelHelp"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1356.0
+margin_bottom = 60.0
+mouse_filter = 2
+custom_constants/separation = 50
+alignment = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelHelp/Hbx"]
+margin_left = 336.0
+margin_right = 472.0
+margin_bottom = 50.0
+custom_constants/separation = 6
+alignment = 2
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="BtnIconHelp" parent="PanelHelp/Hbx/HBoxContainer3" instance=ExtResource( 10 )]
+margin_bottom = 50.0
+
+[node name="Label" type="Label" parent="PanelHelp/Hbx/HBoxContainer3"]
+margin_left = 58.0
+margin_top = 11.0
+margin_right = 136.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.729412 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 2
+text = "SELECT"
+align = 1
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelHelp/Hbx"]
+margin_left = 522.0
+margin_right = 783.0
+margin_bottom = 50.0
+custom_constants/separation = 6
+alignment = 2
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="BtnIconHelp" parent="PanelHelp/Hbx/HBoxContainer" instance=ExtResource( 10 )]
+margin_bottom = 50.0
+action = "ui_cancel"
+
+[node name="Label" type="Label" parent="PanelHelp/Hbx/HBoxContainer"]
+margin_left = 58.0
+margin_top = 11.0
+margin_right = 261.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.729412 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 2
+text = "CLOSE_LAUNCHER"
+align = 1
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="LR" type="HBoxContainer" parent="PanelHelp/Hbx"]
+margin_left = 833.0
+margin_right = 1009.0
+margin_bottom = 50.0
+custom_constants/separation = 6
+
+[node name="Spr" type="TextureRect" parent="PanelHelp/Hbx/LR"]
+margin_right = 60.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 60, 40 )
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="PanelHelp/Hbx/LR"]
+margin_left = 66.0
+margin_top = 11.0
+margin_right = 176.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.729412 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 2
+text = "NAVIGATE"
+align = 1
+valign = 1
+
+[node name="Notification" parent="." instance=ExtResource( 14 )]
+
+[node name="TitleWindow" parent="." instance=ExtResource( 1 )]
+title = "WELCOME_USER"
+
+[node name="FontAwesome" parent="TitleWindow/WindowBar/BtnArrowLeft" index="0"]
+text = ""
+icon_name = "cog"
+
+[node name="Icon" parent="TitleWindow/WindowBar/InfoDevice/Date" index="0"]
+custom_fonts/font = SubResource( 6 )
+
+[node name="Icon" parent="TitleWindow/WindowBar/InfoDevice/Hour" index="0"]
+custom_fonts/font = SubResource( 7 )
+
+[node name="Icon2" parent="TitleWindow/WindowBar/InfoDevice/Battery" index="0"]
+custom_fonts/font = SubResource( 8 )
+
+[node name="Icon" parent="TitleWindow/WindowBar/InfoDevice/Battery" index="1"]
+custom_fonts/font = SubResource( 9 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="pressed" from="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/Button" to="." method="_on_Button_pressed" flags=6 binds= [ "show_all_games" ]]
+[connection signal="pressed" from="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/Button2" to="." method="_on_Button_pressed" binds= [ "favorites" ]]
+[connection signal="pressed" from="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/Button8" to="." method="_on_Button_pressed" binds= [ "random" ]]
+[connection signal="pressed" from="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/Button4" to="." method="_on_Button_pressed" binds= [ "interest_links" ]]
+[connection signal="pressed" from="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/Button5" to="." method="_on_Button_pressed" binds= [ "credits" ]]
+[connection signal="pressed" from="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/Button6" to="." method="_on_Button_pressed" binds= [ "exit" ]]
+[connection signal="btn_back_pressed" from="TitleWindow" to="." method="_on_Button_pressed" binds= [ "settings" ]]
+[connection signal="exit_confirm_dialog_hide" from="TitleWindow" to="." method="_on_TitleWindow_exit_confirm_dialog_hide"]
+[connection signal="exit_confirm_dialog_show" from="TitleWindow" to="." method="_on_TitleWindow_exit_confirm_dialog_show"]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
+
+[editable path="ScrollContainer"]
+[editable path="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/Button"]
+[editable path="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/Button8"]
+[editable path="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/Button4"]
+[editable path="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/Button5"]
+[editable path="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/Button6"]
+[editable path="TitleWindow"]
+[editable path="TitleWindow/WindowBar/BtnArrowLeft"]
+[editable path="TitleWindow/WindowBar/HBxBtnWindow/BtnClose"]

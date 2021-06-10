@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Theme.tres" type="Theme" id=1]
+[ext_resource path="res://ui_elements/Notification.gd" type="Script" id=2]
+
+[node name="Notification" type="HBoxContainer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -667.0
+margin_top = 76.0
+margin_right = 669.0
+margin_bottom = 163.0
+mouse_filter = 2
+theme = ExtResource( 1 )
+alignment = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Panel" type="PanelContainer" parent="."]
+self_modulate = Color( 0.372549, 0.372549, 0.372549, 1 )
+margin_left = 1199.0
+margin_right = 1336.0
+margin_bottom = 87.0
+grow_horizontal = 0
+rect_pivot_offset = Vector2( 137, 0 )
+mouse_filter = 1
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 127.0
+margin_bottom = 77.0
+alignment = 2
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer"]
+margin_top = 15.0
+margin_right = 46.0
+margin_bottom = 52.0
+text = "Txt"
+align = 1
+
+[node name="Button" type="Button" parent="Panel/HBoxContainer"]
+margin_left = 50.0
+margin_right = 117.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 67, 67 )
+focus_mode = 0
+enabled_focus_mode = 0
+keep_pressed_outside = true
+text = "X"
+flat = true
+
+[connection signal="pressed" from="Panel/HBoxContainer/Button" to="." method="_on_Button_pressed"]

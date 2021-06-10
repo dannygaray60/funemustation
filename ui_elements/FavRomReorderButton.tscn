@@ -1,0 +1,120 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://addons/FontAwesome5/fa-solid-900.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://ui_elements/Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/FontAwesome5/FontAwesome.gd" type="Script" id=3]
+[ext_resource path="res://tres/fonts/Ubuntu32_Normal.tres" type="DynamicFont" id=4]
+[ext_resource path="res://ui_elements/FavRomReorderButton.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxLine" id=2]
+color = Color( 1, 1, 1, 1 )
+thickness = 2
+
+[node name="FavRomReorderButton" type="ColorRect"]
+self_modulate = Color( 1, 1, 1, 0.521569 )
+margin_right = 220.0
+margin_bottom = 92.0
+rect_min_size = Vector2( 220, 92 )
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hbx" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBx" type="HBoxContainer" parent="Hbx"]
+margin_right = 220.0
+margin_bottom = 84.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Hbx/HBx"]
+margin_right = 40.0
+margin_bottom = 84.0
+
+[node name="Up" type="Label" parent="Hbx/HBx/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+custom_fonts/font = SubResource( 1 )
+text = ""
+align = 1
+valign = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+icon_size = 32
+icon_name = "arrow-up"
+
+[node name="Btn" parent="Hbx/HBx/VBoxContainer/Up" instance=ExtResource( 2 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
+custom_styles/focus = SubResource( 3 )
+text = ""
+
+[node name="Down" type="Label" parent="Hbx/HBx/VBoxContainer"]
+margin_top = 44.0
+margin_right = 40.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 40, 40 )
+custom_fonts/font = SubResource( 1 )
+text = ""
+align = 1
+valign = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+icon_size = 32
+icon_name = "arrow-down"
+
+[node name="Btn" parent="Hbx/HBx/VBoxContainer/Down" instance=ExtResource( 2 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
+custom_styles/focus = SubResource( 4 )
+text = ""
+
+[node name="Label" type="Label" parent="Hbx/HBx"]
+margin_left = 44.0
+margin_right = 220.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "Rom's name"
+align = 1
+valign = 1
+
+[node name="HSeparator" type="HSeparator" parent="Hbx"]
+margin_top = 88.0
+margin_right = 220.0
+margin_bottom = 92.0
+custom_styles/separator = SubResource( 2 )
+
+[connection signal="focus_entered" from="Hbx/HBx/VBoxContainer/Up/Btn" to="." method="_on_Btn_focus_entered"]
+[connection signal="focus_exited" from="Hbx/HBx/VBoxContainer/Up/Btn" to="." method="_on_Btn_focus_exited"]
+[connection signal="pressed" from="Hbx/HBx/VBoxContainer/Up/Btn" to="." method="_on_Btn_Change_Order" binds= [ "up" ]]
+[connection signal="focus_entered" from="Hbx/HBx/VBoxContainer/Down/Btn" to="." method="_on_Btn_focus_entered"]
+[connection signal="focus_exited" from="Hbx/HBx/VBoxContainer/Down/Btn" to="." method="_on_Btn_focus_exited"]
+[connection signal="pressed" from="Hbx/HBx/VBoxContainer/Down/Btn" to="." method="_on_Btn_Change_Order" binds= [ "down" ]]

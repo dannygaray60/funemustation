@@ -1,0 +1,448 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://ui_elements/Background.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui_elements/TitleWindow.tscn" type="PackedScene" id=2]
+[ext_resource path="res://screens/AllGamesList.gd" type="Script" id=3]
+[ext_resource path="res://tres/fonts/Ubuntu32_Normal.tres" type="DynamicFont" id=4]
+[ext_resource path="res://ui_elements/ScrollContainer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/fonts/ubuntu-font-family/Ubuntu-L.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://ui_elements/Notification.tscn" type="PackedScene" id=7]
+[ext_resource path="res://addons/FontAwesome5/FontAwesome.gd" type="Script" id=8]
+[ext_resource path="res://addons/FontAwesome5/fa-solid-900.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://tres/fonts/Ubuntu24_Normal.tres" type="DynamicFont" id=10]
+[ext_resource path="res://assets/dpad_lr.png" type="Texture" id=11]
+[ext_resource path="res://assets/dpad_ud.png" type="Texture" id=12]
+[ext_resource path="res://ui_elements/Panel.tscn" type="PackedScene" id=13]
+[ext_resource path="res://ui_elements/BtnIconHelp.tscn" type="PackedScene" id=14]
+[ext_resource path="res://ui_elements/VBxHSlider.tscn" type="PackedScene" id=15]
+[ext_resource path="res://tres/PanelHelpIcons.tres" type="StyleBox" id=16]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 20.0
+content_margin_right = 20.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color( 1, 1, 1, 0.32549 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxLine" id=3]
+thickness = 0
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+use_filter = true
+extra_spacing_top = -5
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 89
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 58
+use_filter = true
+font_data = ExtResource( 6 )
+
+[node name="AllGamesList" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" parent="." instance=ExtResource( 1 )]
+
+[node name="ScrollContainer" parent="." instance=ExtResource( 5 )]
+margin_top = 64.0
+mouse_filter = 2
+semitransparent_unfocused_items = false
+
+[node name="CenterContainer" parent="ScrollContainer" index="0"]
+margin_bottom = 692.0
+
+[node name="MarginContainer" parent="ScrollContainer/CenterContainer" index="0"]
+margin_top = 346.0
+margin_bottom = 346.0
+
+[node name="CtrlTitle" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="PanelContainer" parent="CtrlTitle"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -1341.0
+margin_top = 73.0
+margin_right = -1197.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 144, 0 )
+size_flags_vertical = 4
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CtrlTitle/Panel"]
+margin_left = 20.0
+margin_top = 10.0
+margin_right = 124.0
+margin_bottom = 67.0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.415686 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Title"
+max_lines_visible = 1
+
+[node name="LblEmptySystems" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -344.5
+margin_top = -58.5
+margin_right = 344.5
+margin_bottom = 58.5
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 4 )
+text = "You don't have any system configured.
+
+Please go to Settings screen and edit systems.ini"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelHelp" parent="." instance=ExtResource( 13 )]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -70.0
+margin_right = 0.0
+margin_bottom = 0.0
+custom_styles/panel = ExtResource( 16 )
+
+[node name="Hbx" type="HBoxContainer" parent="PanelHelp"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1356.0
+margin_bottom = 60.0
+mouse_filter = 2
+custom_constants/separation = 50
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VSeparator" type="VSeparator" parent="PanelHelp/Hbx"]
+margin_bottom = 50.0
+custom_styles/separator = SubResource( 3 )
+custom_constants/separation = -161
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelHelp/Hbx"]
+margin_left = 50.0
+margin_right = 163.0
+margin_bottom = 50.0
+custom_constants/separation = 6
+alignment = 2
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="BtnIconHelp" parent="PanelHelp/Hbx/HBoxContainer3" instance=ExtResource( 14 )]
+margin_bottom = 50.0
+
+[node name="Label" type="Label" parent="PanelHelp/Hbx/HBoxContainer3"]
+margin_left = 58.0
+margin_top = 11.0
+margin_right = 113.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.729412 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 2
+text = "PLAY"
+align = 1
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelHelp/Hbx"]
+margin_left = 213.0
+margin_right = 362.0
+margin_bottom = 50.0
+custom_constants/separation = 6
+alignment = 2
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="BtnIconHelp" parent="PanelHelp/Hbx/HBoxContainer2" instance=ExtResource( 14 )]
+margin_bottom = 50.0
+action = "ui_alternative_action"
+
+[node name="Label" type="Label" parent="PanelHelp/Hbx/HBoxContainer2"]
+margin_left = 58.0
+margin_top = 11.0
+margin_right = 149.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.729412 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 2
+text = "ADDFAV"
+align = 1
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelHelp/Hbx"]
+margin_left = 412.0
+margin_right = 529.0
+margin_bottom = 50.0
+custom_constants/separation = 6
+alignment = 2
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="BtnIconHelp" parent="PanelHelp/Hbx/HBoxContainer" instance=ExtResource( 14 )]
+margin_bottom = 50.0
+action = "ui_cancel"
+
+[node name="Label" type="Label" parent="PanelHelp/Hbx/HBoxContainer"]
+margin_left = 58.0
+margin_top = 11.0
+margin_right = 117.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.729412 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 2
+text = "BACK"
+align = 1
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Hbx2" type="HBoxContainer" parent="PanelHelp"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1356.0
+margin_bottom = 60.0
+mouse_filter = 2
+custom_constants/separation = 50
+alignment = 2
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="LR" type="HBoxContainer" parent="PanelHelp/Hbx2"]
+margin_left = 883.0
+margin_right = 1054.0
+margin_bottom = 50.0
+custom_constants/separation = 6
+
+[node name="Spr" type="TextureRect" parent="PanelHelp/Hbx2/LR"]
+margin_right = 55.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 55, 30 )
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="PanelHelp/Hbx2/LR"]
+margin_left = 61.0
+margin_top = 11.0
+margin_right = 171.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.729412 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 2
+text = "NAVIGATE"
+align = 1
+valign = 1
+
+[node name="UD" type="HBoxContainer" parent="PanelHelp/Hbx2"]
+margin_left = 1104.0
+margin_right = 1296.0
+margin_bottom = 50.0
+custom_constants/separation = 6
+
+[node name="Spr" type="TextureRect" parent="PanelHelp/Hbx2/UD"]
+margin_right = 55.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 55, 30 )
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="PanelHelp/Hbx2/UD"]
+margin_left = 61.0
+margin_top = 11.0
+margin_right = 192.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.729412 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 2
+text = "CHANGESYS"
+align = 1
+valign = 1
+
+[node name="VSeparator2" type="VSeparator" parent="PanelHelp/Hbx2"]
+margin_left = 1346.0
+margin_right = 1346.0
+margin_bottom = 50.0
+custom_styles/separator = SubResource( 3 )
+custom_constants/separation = -161
+
+[node name="HbxSliderTotalGames" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -901.0
+margin_top = -172.0
+margin_right = -31.0
+margin_bottom = -121.0
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HbxSliderTotalGames"]
+margin_right = 140.0
+margin_bottom = 51.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+custom_constants/line_spacing = 2
+text = "00 Games"
+valign = 1
+
+[node name="VBxHSlider" parent="HbxSliderTotalGames" instance=ExtResource( 15 )]
+margin_left = 165.0
+margin_right = 870.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" parent="HbxSliderTotalGames/VBxHSlider" index="0"]
+visible = false
+margin_right = 784.0
+
+[node name="HSlider" parent="HbxSliderTotalGames/VBxHSlider" index="1"]
+margin_top = 16.0
+margin_right = 705.0
+margin_bottom = 35.0
+focus_mode = 0
+step = 1.0
+editable = false
+
+[node name="TitleWindow" parent="." instance=ExtResource( 2 )]
+title = "SYS_NOT_CONF"
+btn_back_visible = false
+
+[node name="CtrlLoadingRom" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.780392 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="CtrlLoadingRom"]
+repeat = true
+playback/repeat = true
+
+[node name="Timer" type="Timer" parent="CtrlLoadingRom"]
+one_shot = true
+
+[node name="VBx" type="VBoxContainer" parent="CtrlLoadingRom"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -20.0
+margin_right = 31.0
+margin_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FontAwesome" type="Label" parent="CtrlLoadingRom/VBx"]
+margin_left = 207.0
+margin_right = 296.0
+margin_bottom = 90.0
+rect_pivot_offset = Vector2( 44, 45 )
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 5 )
+text = ""
+align = 1
+valign = 1
+script = ExtResource( 8 )
+__meta__ = {
+"_editor_description_": ""
+}
+icon_size = 89
+icon_name = "circle-notch"
+
+[node name="Label" type="Label" parent="CtrlLoadingRom/VBx"]
+margin_top = 94.0
+margin_right = 503.0
+margin_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.611765 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 2
+text = "LOADINGCONTENT"
+align = 1
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Notification" parent="." instance=ExtResource( 7 )]
+
+[node name="TimerShowBG" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="scrolled" from="ScrollContainer" to="." method="_on_ScrollContainer_scrolled"]
+[connection signal="btn_back_pressed" from="TitleWindow" to="." method="_on_TitleWindow_btn_back_pressed"]
+[connection signal="exit_confirm_dialog_hide" from="TitleWindow" to="." method="_on_TitleWindow_exit_confirm_dialog_hide"]
+[connection signal="exit_confirm_dialog_show" from="TitleWindow" to="." method="_on_TitleWindow_exit_confirm_dialog_show"]
+
+[editable path="ScrollContainer"]
+[editable path="HbxSliderTotalGames/VBxHSlider"]

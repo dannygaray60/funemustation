@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://tres/fonts/Ubuntu32_Normal.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/btn.png" type="Texture" id=2]
+[ext_resource path="res://ui_elements/HBxSetGamepadIcon.gd" type="Script" id=3]
+[ext_resource path="res://ui_elements/Button.tscn" type="PackedScene" id=4]
+
+[node name="HBxSetGamepadIcon" type="HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/separation = 14
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 64.0
+margin_top = 6.0
+margin_right = 128.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Text"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 142.0
+margin_right = 241.0
+margin_bottom = 50.0
+custom_constants/separation = -1
+
+[node name="BtnPrev" parent="HBoxContainer" instance=ExtResource( 4 )]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+text = "<"
+
+[node name="BtnNext" parent="HBoxContainer" instance=ExtResource( 4 )]
+margin_left = 49.0
+margin_right = 99.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+text = ">"
+
+[connection signal="pressed" from="HBoxContainer/BtnPrev" to="." method="_on_BtnChangeIcon" binds= [ "prev" ]]
+[connection signal="pressed" from="HBoxContainer/BtnNext" to="." method="_on_BtnChangeIcon" binds= [ "next" ]]
