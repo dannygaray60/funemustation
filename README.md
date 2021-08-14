@@ -1,4 +1,6 @@
 # funemustation
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X8X82YWDI)
+
 A simple but elegant launcher of emulators and pc games
 
 ![Main](https://github.com/dannygaray60/funemustation/blob/main/docs/fes%20screenshots/01main.jpg?raw=true)
