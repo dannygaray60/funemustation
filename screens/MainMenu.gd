@@ -22,6 +22,11 @@ func _on_TitleWindow_exit_confirm_dialog_show():
 
 
 func _on_Button_pressed(opt):
+	
+	#ocultar mouse en ciertas situaciones
+	if opt in ["show_all_games","random","favorites"]:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
 	Audio.get_node("Intro").play()
 	$ScrollContainer.can_move_menu = false
 	$PanelHelp.visible = false
@@ -36,7 +41,8 @@ func _on_Button_pressed(opt):
 				$Notification.notif("Systems not configured")
 				$ScrollContainer.can_move_menu = true
 				return
-				
+			
+			randomize()
 			var random_system_idx = randi() % systems_size - 1
 			
 			var rom_data_size = Array(Vars.rom_data)[random_system_idx].size()
@@ -46,6 +52,7 @@ func _on_Button_pressed(opt):
 				$ScrollContainer.can_move_menu = true
 				return
 			
+			randomize()
 			var random_rom_idx = randi() % rom_data_size - 1
 			
 			Config.set_conf_value("roms","selected_system",random_system_idx)

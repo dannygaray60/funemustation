@@ -35,6 +35,9 @@ func check_config_file(configfile=Vars.data_path+"/settings.ini"):
 		
 	if not conf.has_section_key("video", "borderless_fullscreen"):
 		conf.set_value("video", "borderless_fullscreen", false)
+	
+	if not conf.has_section_key("video", "fullscreen"):
+		conf.set_value("video", "fullscreen", false)
 		
 	if not conf.has_section_key("video", "bg_darkness"):
 		conf.set_value("video", "bg_darkness", 0.5)
@@ -128,7 +131,12 @@ func check_config_file(configfile=Vars.data_path+"/settings.ini"):
 		output_check_config_file += "Settings loaded.\n\n"
 		
 	#establecer si mostrar en pantalla completa o no
-	OS.set_borderless_window(conf.get_value("video","borderless_fullscreen"))
+	#si el fullscreen es true
+	if conf.get_value("video","fullscreen",false):
+		OS.window_fullscreen = true
+	else:
+		OS.set_borderless_window(conf.get_value("video","borderless_fullscreen"))
+	
 	if OS.window_borderless:
 		OS.set_window_size(OS.get_screen_size())
 		OS.set_window_position(Vector2(0, 0))

@@ -58,3 +58,7 @@ func _on_BtnGoMenu_pressed():
 		SceneChanger.change_scene("res://screens/AllGamesList.tscn")
 	else:
 		SceneChanger.change_scene("res://screens/BuyLauncher.tscn")
+
+
+func _on_ExecutedContent_tree_exiting():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

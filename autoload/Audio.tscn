@@ -29,7 +29,7 @@ bus = "effects"
 "effects",
 ]]
 stream = ExtResource( 5 )
-volume_db = -11.606
+volume_db = -9.0
 pitch_scale = 0.87
 bus = "effects"
 
@@ -43,6 +43,8 @@ bus = "effects"
 "effects",
 ]]
 stream = ExtResource( 6 )
+volume_db = -7.0
+pitch_scale = 0.6
 bus = "effects"
 
 [node name="ChangeSection" type="AudioStreamPlayer" parent="." groups=[

@@ -40,7 +40,10 @@ func _ready():
 	$WindowBar/BtnArrowLeft.visible = btn_back_visible
 	$WindowBar/HBxBtnWindow.visible = btn_window_visible
 	
-	$WindowBar/HBxBtnWindow.visible = Config.get_conf_value("video","borderless_fullscreen",true)
+	if Config.get_conf_value("video","borderless_fullscreen",false) or Config.get_conf_value("video","fullscreen",false):
+		$WindowBar/HBxBtnWindow.visible = true
+	else:
+		$WindowBar/HBxBtnWindow.visible = false
 	
 	update_status_info()
 

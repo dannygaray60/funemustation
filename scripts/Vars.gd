@@ -1,6 +1,6 @@
 extends Node
 
-var paid = true
+var paid = false
 
 var show_favorites = false
 

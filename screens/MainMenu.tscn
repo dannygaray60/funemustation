@@ -163,7 +163,7 @@ icon_name = "heart"
 [node name="Button6" parent="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer" index="5" instance=ExtResource( 5 )]
 margin_left = 1880.0
 margin_right = 2144.0
-text = "Exit"
+text = "EXIT"
 
 [node name="FontAwesome" parent="ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/Button6/VBx" index="0"]
 custom_fonts/font = SubResource( 5 )

@@ -84,4 +84,5 @@ custom_fonts/font = ExtResource( 4 )
 text = "PRESSCOMBOEXIT"
 align = 1
 
+[connection signal="tree_exiting" from="." to="." method="_on_ExecutedContent_tree_exiting"]
 [connection signal="pressed" from="VBoxContainer/BtnGoMenu" to="." method="_on_BtnGoMenu_pressed"]
